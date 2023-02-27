@@ -54,3 +54,4 @@ if (php_sapi_name() !== 'cli') {
     //la machine client
     send($response);
 }
+// Une modif
