@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityManager;
 
 return [
     "doctrine.user" => "root",
-    "doctrine.dbname" => "filRouge",
+    "doctrine.dbname" => "filrouge",
     "doctrine.mdp" => "",
     "doctrine.driver" => "pdo_mysql",
     "doctrine.devMode" => true,

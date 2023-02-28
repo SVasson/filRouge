@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <title>{{ siteName }}</title>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="">A propos</a></li>
+                <li><a href="">Evenement</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Inscription</a></li>
+                <li><a href="">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        {# {% if hasToast() %}
+            {% for toast in renderToast() %}
+                {{ toast | raw }}
+            {% endfor %}
+        {% endif %} #}
+
+    {% block body %}
+        <!-- inserer page içi -->
+    {% endblock %}
+    </main>
+    <footer>
+        <h1>Je suis le footer</h1>
+    </footer>
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>

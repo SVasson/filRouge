@@ -1,9 +1,17 @@
 <?php
 
 
-use GuzzleHttp\Psr7\ServerRequest;
+use Core\App;
 use DI\ContainerBuilder;
 use function Http\Response\send;
+use GuzzleHttp\Psr7\ServerRequest;
+use Core\Framework\Middleware\RouterMiddleware;
+use Core\Framework\Middleware\NotFoundMiddleware;
+// use Core\Framework\Middleware\UserAuthMiddleware;
+// use Core\Framework\Middleware\AdminAuthMiddleware;
+use Core\Framework\Middleware\TrailingSlashMiddleware;
+use Core\Framework\Middleware\RouterDispatcherMiddleware;
+use App\Home\HomeModule;
 
 //Inclusion de l'autoloader de composer
 require dirname(__DIR__).'/vendor/autoload.php';
@@ -11,10 +19,10 @@ require dirname(__DIR__).'/vendor/autoload.php';
 
 //Déclaration du tableau de modules à charger
 $modules = [
-    HomeModule::class,
-    CarModule::class,
-    AdminModule::class,
-    UserModule::class
+    HomeModule::class//,
+    // CarModule::class,
+    // AdminModule::class,
+    // UserModule::class
 ];
 
 //Instanciation du builder du container de dépendance, le builder permet de construire l'objet container de dépendances
@@ -40,8 +48,8 @@ $app = new App($container, $modules);
 //Puis on ajoute les middleware suivant en leur passant le container de dépendances si besoin
 $app->linkFirst(new TrailingSlashMiddleware())
     ->linkWith(new RouterMiddleware($container))
-    ->linkWith(new AdminAuthMiddleware($container))
-    ->linkWith(new UserAuthMiddleware($container))
+    // ->linkWith(new AdminAuthMiddleware($container))
+    // ->linkWith(new UserAuthMiddleware($container))
     ->linkWith(new RouterDispatcherMiddleware())
     ->linkWith(new NotFoundMiddleware());
 
