@@ -3,12 +3,15 @@
 
 use Core\App;
 use DI\ContainerBuilder;
-use App\Epicerie\EpicerieModule;
+
+use App\Apropos\AproposModule;
 use function Http\Response\send;
-use GuzzleHttp\Psr7\ServerRequest;
-use Core\Framework\Middleware\RouterMiddleware;
+use App\Evenement\EvenementModule;
 // use Core\Framework\Middleware\UserAuthMiddleware;
 // use Core\Framework\Middleware\AdminAuthMiddleware;
+use GuzzleHttp\Psr7\ServerRequest;
+use App\PageDeGarde\PageDeGardeModule;
+use Core\Framework\Middleware\RouterMiddleware;
 use Core\Framework\Middleware\NotFoundMiddleware;
 use Core\Framework\Middleware\TrailingSlashMiddleware;
 use Core\Framework\Middleware\RouterDispatcherMiddleware;
@@ -20,9 +23,9 @@ require dirname(__DIR__).'/vendor/autoload.php';
 
 //Déclaration du tableau de modules à charger
 $modules = [
-    EpicerieModule::class//,
-    // CarModule::class,
-    // AdminModule::class,
+    PageDeGardeModule::class,
+    AproposModule::class,
+    EvenementModule::class
     // UserModule::class
 ];
 
