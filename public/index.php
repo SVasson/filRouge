@@ -3,15 +3,16 @@
 
 use Core\App;
 use DI\ContainerBuilder;
+use App\Epicerie\EpicerieModule;
 use function Http\Response\send;
 use GuzzleHttp\Psr7\ServerRequest;
 use Core\Framework\Middleware\RouterMiddleware;
-use Core\Framework\Middleware\NotFoundMiddleware;
 // use Core\Framework\Middleware\UserAuthMiddleware;
 // use Core\Framework\Middleware\AdminAuthMiddleware;
+use Core\Framework\Middleware\NotFoundMiddleware;
 use Core\Framework\Middleware\TrailingSlashMiddleware;
 use Core\Framework\Middleware\RouterDispatcherMiddleware;
-use App\Home\HomeModule;
+
 
 //Inclusion de l'autoloader de composer
 require dirname(__DIR__).'/vendor/autoload.php';
@@ -19,7 +20,7 @@ require dirname(__DIR__).'/vendor/autoload.php';
 
 //Déclaration du tableau de modules à charger
 $modules = [
-    HomeModule::class//,
+    EpicerieModule::class//,
     // CarModule::class,
     // AdminModule::class,
     // UserModule::class
@@ -51,7 +52,8 @@ $app->linkFirst(new TrailingSlashMiddleware())
     // ->linkWith(new AdminAuthMiddleware($container))
     // ->linkWith(new UserAuthMiddleware($container))
     ->linkWith(new RouterDispatcherMiddleware())
-    ->linkWith(new NotFoundMiddleware());
+    ->linkWith(new NotFoundMiddleware())
+    ;
 
 //Si l'index n'est pas executé à partir de la CLI (Command Line Interface)
 if (php_sapi_name() !== 'cli') {

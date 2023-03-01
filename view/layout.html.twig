@@ -23,11 +23,11 @@
     </header>
     <main>
 
-        {# {% if hasToast() %}
+        {% if hasToast() %}
             {% for toast in renderToast() %}
                 {{ toast | raw }}
             {% endfor %}
-        {% endif %} #}
+        {% endif %}
 
     {% block body %}
         <!-- inserer page içi -->
