@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Evenement;
+namespace App\Cuisine;
 
 use Core\Framework\Router\Router;
 use Core\Framework\Renderer\RendererInterface;
 use Core\Framework\AbstractClass\AbstractModule;
 
-class EvenementModule extends AbstractModule
+class CuisineModule extends AbstractModule
 {
     public const DEFINITIONS = __DIR__ . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php';
 
@@ -18,15 +18,14 @@ class EvenementModule extends AbstractModule
         $this->router = $router;
         $this->renderer = $renderer;
     
-        $this->renderer->addPath('evenement', __DIR__ . DIRECTORY_SEPARATOR . 'view');
+        $this->renderer->addPath('cuisine', __DIR__ . DIRECTORY_SEPARATOR . 'view');
 
-        $this->router->get('/Evenement', [$this, 'evenement'], 'Evenement.vue');
+        $this->router->get('/Cuisine', [$this, 'cuisine'], 'Cuisine.vue');
     }
 
-    public function evenement()
+    public function cuisine()
     {
-        return $this->renderer->render('@evenement/evenement', 
+        return $this->renderer->render('@cuisine/cuisine', 
         ['siteName' => 'Epicerie Mozart']);
     }
-
 }

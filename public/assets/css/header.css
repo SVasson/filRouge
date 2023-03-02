@@ -1,0 +1,16 @@
+/* #EBE6E4 */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+header{
+    background-color: white;
+    border: solid;
+    height: 150px;
+}
+body{
+    background-color: #EBE6E4;
+    
+}

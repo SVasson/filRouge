@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -5,21 +6,54 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   
+   {% block stylesheet %}
+   <link rel="stylesheet" href="{{ assets('/assets/css/nav.css') }}"/>
+   <link rel="stylesheet" href="{{ assets('/assets/css/header.css') }}"/>
+    {% endblock %}
     <title>{{ siteName }}</title>
 
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{{ path('Apropos.vue') }}">A propos</a></li>
-                <li><a href="{{ path('Evenement.vue') }}">Evenement</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">Inscription</a></li>
-                <li><a href="">Connexion</a></li>
-            </ul>
+
+     <header>
+
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+               
+                <ul id="menu">
+                    <a href="{{ path('Apropos.vue') }}">
+                        <li>A propos</li>
+                    </a>
+                    <hr>
+                    <a href="{{ path('Evenement.vue') }}">
+                        <li>Evenement</li>
+                    </a>
+                    <hr>
+                    <a href="{{ path('Contact.vue') }}">
+                        <li>Contact</li>
+                    </a>
+                    <hr>
+                    <a href="#">
+                        <li>Inscription</li>
+                    </a>
+                    <hr>
+                    <a href="#">
+                        <li>Connexion</li>
+                    </a>
+                    <hr>
+                    <a href="/">
+                        <li>Page De Garde</li>
+                    </a>
+                </ul>
+               
+            </div> 
+             <h3>MENU</h3>
         </nav>
+        {{ image }}
     </header>
     <main>
 
@@ -32,11 +66,14 @@
     {% block body %}
         <!-- inserer page içi -->
     {% endblock %}
+             
     </main>
     <footer>
         <h1>Je suis le footer</h1>
     </footer>
     {% block scripts %}
+
     {% endblock %}
+
 </body>
 </html>

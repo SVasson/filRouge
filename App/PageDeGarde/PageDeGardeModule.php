@@ -18,17 +18,22 @@ class PageDeGardeModule extends AbstractModule
     {
         $this->router = $router;
         $this->renderer = $renderer;
-    
+
         $this->renderer->addGlobal('siteName', 'Epicerie Mozart');
         $this->renderer->addPath('home', __DIR__ . DIRECTORY_SEPARATOR . 'view');
-        $this->router->get('/PageDeGarde', [$this, 'index'], 'PageDeGarde');
+        $this->router->get('/', [$this, 'index'], 'PageDeGarde');
 
-
+    }
+    public function afficherImage()
+    {
+        $chemin = 'public/assets/img/300350187_401934288590247_4067288884457047332_n.jpg';
+        echo '<img src="' . $chemin . '" alt="Image">';
     }
     public function index()
     {
-        return $this->renderer->render('@home/index',
-        ['siteName' => 'Epicerie Mozart']);
+        return $this->renderer->render(
+            '@home/index',
+            ['siteName' => 'Epicerie Mozart', 'image' => $this->afficherImage()]
+        );
     }
-
 }

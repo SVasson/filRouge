@@ -5,38 +5,45 @@ use Core\App;
 use DI\ContainerBuilder;
 
 use App\Apropos\AproposModule;
+use App\Contact\ContactModule;
+
+use App\Cuisine\CuisineModule;
+use App\Coiffeur\CoiffeurModule;
 use function Http\Response\send;
 use App\Evenement\EvenementModule;
-// use Core\Framework\Middleware\UserAuthMiddleware;
-// use Core\Framework\Middleware\AdminAuthMiddleware;
 use GuzzleHttp\Psr7\ServerRequest;
 use App\PageDeGarde\PageDeGardeModule;
 use Core\Framework\Middleware\RouterMiddleware;
 use Core\Framework\Middleware\NotFoundMiddleware;
+use Core\Framework\Middleware\UserAuthMiddleware;
+use Core\Framework\Middleware\AdminAuthMiddleware;
 use Core\Framework\Middleware\TrailingSlashMiddleware;
 use Core\Framework\Middleware\RouterDispatcherMiddleware;
 
 
 //Inclusion de l'autoloader de composer
-require dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 
 //Déclaration du tableau de modules à charger
 $modules = [
+    
     PageDeGardeModule::class,
     AproposModule::class,
-    EvenementModule::class
-    // UserModule::class
+    EvenementModule::class,
+    CuisineModule::class,
+    CoiffeurModule::class,
+    ContactModule::class
 ];
 
 //Instanciation du builder du container de dépendance, le builder permet de construire l'objet container de dépendances
 //mais ce n'est pas le container de dépendances
 $builder = new ContainerBuilder();
 //Ajout de la feuille de configuration principale
-$builder->addDefinitions(dirname(__DIR__). DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php');
+$builder->addDefinitions(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php');
 
 foreach ($modules as $module) {
-    if(!is_null($module::DEFINITIONS)) {
+    if (!is_null($module::DEFINITIONS)) {
         //Si les modules possédent une feuille de configuration personnalisé on l'ajoute aussi
         $builder->addDefinitions($module::DEFINITIONS);
     }
@@ -55,8 +62,7 @@ $app->linkFirst(new TrailingSlashMiddleware())
     // ->linkWith(new AdminAuthMiddleware($container))
     // ->linkWith(new UserAuthMiddleware($container))
     ->linkWith(new RouterDispatcherMiddleware())
-    ->linkWith(new NotFoundMiddleware())
-    ;
+    ->linkWith(new NotFoundMiddleware());
 
 //Si l'index n'est pas executé à partir de la CLI (Command Line Interface)
 if (php_sapi_name() !== 'cli') {
