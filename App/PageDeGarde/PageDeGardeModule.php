@@ -24,16 +24,15 @@ class PageDeGardeModule extends AbstractModule
         $this->router->get('/', [$this, 'index'], 'PageDeGarde');
 
     }
-    public function afficherImage()
-    {
-        $chemin = 'public/assets/img/300350187_401934288590247_4067288884457047332_n.jpg';
-        echo '<img src="' . $chemin . '" alt="Image">';
-    }
+  
     public function index()
     {
         return $this->renderer->render(
             '@home/index',
-            ['siteName' => 'Epicerie Mozart', 'image' => $this->afficherImage()]
+            ['siteName' => 'Epicerie Mozart',
+            'videoUrl' => '/assets/img/stand-de-legumes-151.mp4',
+            'videoType' => 'video/mp4'
+            ]
         );
     }
 }

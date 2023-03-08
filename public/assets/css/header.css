@@ -3,14 +3,34 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+  
 
 }
 header{
-    background-color: white;
-    border: solid;
+  background-color: white;
     height: 150px;
 }
 body{
     background-color: #EBE6E4;
     
+}
+.logo{
+    width: 100%;
+    position: absolute; 
+    margin-top: -10px;
+    display: flex;
+    justify-content: center;
+}
+.logo img{
+    width: 300px;
+}
+.logoDon{
+    width: 99%;
+    position: absolute; 
+    display: flex;
+    justify-content: end;
+    margin-top:0.5%;
+}
+.logoDon img{
+    width: 130px;
 }

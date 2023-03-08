@@ -1,3 +1,5 @@
+
+
 #menuToggle {
     display: block;
     position: absolute;
@@ -101,6 +103,8 @@
 
 nav h3{
     margin-left: 95px;
-    margin-top: 54px;
     font-size: 26px;
+    position: absolute;
+    margin-top: 58px;
 }
+

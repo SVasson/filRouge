@@ -1,9 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-
-
-<h1>Bienvenue sur l'Epicerie Mozart</h1>
-
-
+<div class="maVideo">
+<video class="myVideo" autoplay loop controls >
+     <source src="{{ videoUrl }}" type="{{ videoType }}">
+</video>
+</div>
+<section class="surVideo">
+<div class="presentation"></div>
+<div class="texte"></div>
+<div class="boutton"></div>
+</section>
+<div class="scroll-down">
+  <span class="arrow-down"></span>
+</div>
 {% endblock %}
