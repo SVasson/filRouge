@@ -25,5 +25,9 @@
         "doctrine/dbal": "^3.4",
         "doctrine/annotations": "^2.0",
         "symfony/cache": "^5.4"
+    },
+    "scripts": {
+        "generate-entities": "php vendor/bin/doctrine orm:generate-entities ./ --regenerate-entities",
+        "update-db": "php vendor/bin/doctrine orm:schema-tool:update --force"
     }
 }

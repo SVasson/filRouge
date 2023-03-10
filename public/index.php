@@ -2,15 +2,12 @@
 
 
 use Core\App;
+use App\User\UserModule;
+
+
 use DI\ContainerBuilder;
-
-use App\Apropos\AproposModule;
-use App\Contact\ContactModule;
-
-use App\Cuisine\CuisineModule;
-use App\Coiffeur\CoiffeurModule;
+use App\Epicerie\EpicerieModule;
 use function Http\Response\send;
-use App\Evenement\EvenementModule;
 use GuzzleHttp\Psr7\ServerRequest;
 use App\PageDeGarde\PageDeGardeModule;
 use Core\Framework\Middleware\RouterMiddleware;
@@ -29,11 +26,9 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 $modules = [
     
     PageDeGardeModule::class,
-    AproposModule::class,
-    EvenementModule::class,
-    CuisineModule::class,
-    CoiffeurModule::class,
-    ContactModule::class
+    EpicerieModule::class,
+    UserModule::class
+
 ];
 
 //Instanciation du builder du container de dépendance, le builder permet de construire l'objet container de dépendances
@@ -60,7 +55,7 @@ $app = new App($container, $modules);
 $app->linkFirst(new TrailingSlashMiddleware())
     ->linkWith(new RouterMiddleware($container))
     // ->linkWith(new AdminAuthMiddleware($container))
-    // ->linkWith(new UserAuthMiddleware($container))
+    ->linkWith(new UserAuthMiddleware($container))
     ->linkWith(new RouterDispatcherMiddleware())
     ->linkWith(new NotFoundMiddleware());
 

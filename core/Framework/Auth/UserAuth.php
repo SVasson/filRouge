@@ -37,7 +37,7 @@ class UserAuth
         $user = new User();
         $hash = password_hash($data['mdp'], PASSWORD_BCRYPT);
         $user->hydrate($data)
-            ->setPassword($hash);
+            ->setMdp($hash);
 
         try {
             $this->manager->persist($user);
@@ -53,7 +53,7 @@ class UserAuth
     public function login(string $mail, string $pass): bool
     {
         $user = $this->repository->findOneBy(['mail' => $mail]);
-        if ($user && password_verify($pass, $user->getPassword())) {
+        if ($user && password_verify($pass, $user->getMdp())) {
             $this->session->set('auth', $user);
             return true;
         }
