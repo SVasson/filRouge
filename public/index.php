@@ -6,6 +6,7 @@ use App\User\UserModule;
 
 
 use DI\ContainerBuilder;
+use App\Admin\AdminModule;
 use App\Epicerie\EpicerieModule;
 use function Http\Response\send;
 use GuzzleHttp\Psr7\ServerRequest;
@@ -16,7 +17,7 @@ use Core\Framework\Middleware\UserAuthMiddleware;
 use Core\Framework\Middleware\AdminAuthMiddleware;
 use Core\Framework\Middleware\TrailingSlashMiddleware;
 use Core\Framework\Middleware\RouterDispatcherMiddleware;
-
+use Model\Repository\EventDateRepository;
 
 //Inclusion de l'autoloader de composer
 require dirname(__DIR__) . '/vendor/autoload.php';
@@ -27,7 +28,9 @@ $modules = [
     
     PageDeGardeModule::class,
     EpicerieModule::class,
-    UserModule::class
+    UserModule::class,
+    AdminModule::class
+
 
 ];
 
@@ -54,10 +57,11 @@ $app = new App($container, $modules);
 //Puis on ajoute les middleware suivant en leur passant le container de dépendances si besoin
 $app->linkFirst(new TrailingSlashMiddleware())
     ->linkWith(new RouterMiddleware($container))
-    // ->linkWith(new AdminAuthMiddleware($container))
+    ->linkWith(new AdminAuthMiddleware($container))
     ->linkWith(new UserAuthMiddleware($container))
     ->linkWith(new RouterDispatcherMiddleware())
     ->linkWith(new NotFoundMiddleware());
+   
 
 //Si l'index n'est pas executé à partir de la CLI (Command Line Interface)
 if (php_sapi_name() !== 'cli') {

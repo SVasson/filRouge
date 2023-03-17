@@ -71,7 +71,7 @@ class UserAction
             return $result;
         }
         $this->toaster->makeToast("Inscription reussie, vous pouvez vous connécter", Toaster::SUCCESS);
-        return $this->redirect('user.login');
+        return $this->redirect('user.home');
     }
 
     public function login(ServerRequest $request)

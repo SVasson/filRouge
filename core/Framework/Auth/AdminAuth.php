@@ -21,7 +21,7 @@ class AdminAuth
     {
         $admin = $this->manager->getRepository(Admin::class)
             ->findOneBy(["mail" => $email]);
-        if ($admin && password_verify($password, $admin->getPass())) {
+        if ($admin && password_verify($password, $admin->getMdp())) {
             $this->session->set('auth', $admin);
             return true;
         }
