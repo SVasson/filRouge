@@ -32,6 +32,7 @@ class AdminModule extends AbstractModule
         $this->router->post('/admin/login', [$authAction, 'login']);
         $this->router->get('/admin/logout', [$authAction, 'logout'], 'admin.logout');
         $this->router->get('/admin/home', [$adminAction, 'home'], 'admin.home');
+        $this->router->get('/admin/edit-date', [$adminAction, 'editDate'], 'admin.edit-date');
 
     }
 }

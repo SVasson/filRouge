@@ -31,7 +31,9 @@ class PageDeGardeModule extends AbstractModule
             '@home/index',
             ['siteName' => 'Epicerie Mozart',
             'videoUrl' => '/assets/img/stand-de-legumes-151.mp4',
-            'videoType' => 'video/mp4'
+            'videoType' => 'video/mp4',
+            'secondVideoUrl' => '/assets/img/Homme - 86866 (2).mp4',
+            'secondVideoType' => 'video/mp4'
             ]
         );
     }

@@ -7,8 +7,9 @@
 		{% block stylesheet %}
 			<link rel="stylesheet" href="{{ assets('/assets/css/nav.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/header.css') }}"/>
-            <link rel="stylesheet" href="{{ assets('/assets/css/pageDeGarde.css') }}"/>
+			<link rel="stylesheet" href="{{ assets('/assets/css/pageDeGarde.css') }}"/>
 		{% endblock %}
+
 		<title>{{ siteName }}</title>
 
 	</head>
@@ -24,8 +25,8 @@
 					<span></span>
 
 					<ul id="menu">
-						 <a href="{{ path('epicerie.apropos') }}"> 
-						 <li>A propos</li>
+						<a href="{{ path('epicerie.apropos') }}">
+							<li>A propos</li>
 						</a>
 						<hr>
 						<a href=" {{ path('epicerie.evenement') }} ">
@@ -51,7 +52,10 @@
 			<div class="logo">
 				<img src="/assets/img/Logo_Site (1).png">
 			</div>
+
 			<div class="logoDon">
+			<i class="fa-brands fa-facebook"></i>
+			<i class="fa-brands fa-linkedin"></i>
 				<img src="/assets/img/pngegg (24).png">
 			</div>
 		</header>
@@ -71,7 +75,9 @@
 		<footer>
 			<h1>Je suis le footer</h1>
 		</footer>
-		{% block scripts %}{% endblock %}
+		{% block scripts %}
+			<script src="https://kit.fontawesome.com/e73be59cbc.js" crossorigin="anonymous"></script>
+		{% endblock %}
 
 	</body>
 </html>

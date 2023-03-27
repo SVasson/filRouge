@@ -27,7 +27,7 @@ class RouterDispatcherMiddleware extends AbstractMiddleware
         } elseif (is_string($response)) {
             return new Response(200,[], $response);
         } else {
-            throw new \Exception("Réponse du server invalide");
+            throw new \Exception("Réponse du serveur invalide");
         }
     }
 }

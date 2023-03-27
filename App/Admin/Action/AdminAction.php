@@ -28,29 +28,29 @@ class AdminAction
         return $this->renderer->render('@admin/home');
     }
 
-    // public function editDate(ServerRequest $request)
-    // {
-    //     $event = $request->getAttribute('event');
-    //     $eventDate = $this->eventDateRepository->findByEvent($event);
+    public function editDate(ServerRequest $request)
+    {
+        $event = $request->getAttribute('event');
+        $eventDate = $this->eventDateRepository->findByEvent($event);
 
-    //     if (!$eventDate) {
-    //         $eventDate = new EventDate();
-    //         $eventDate->setEvent($event);
-    //     } else {
-    //         $eventDate = $eventDate[0];
-    //     }
+        if (!$eventDate) {
+            $eventDate = new EventDate();
+            $eventDate->setEvent($event);
+        } else {
+            $eventDate = $eventDate[0];
+        }
 
-    //     if ($request->getMethod() === 'POST') {
-    //         $data = $request->getParsedBody();
-    //         $eventDate->setDate(new \DateTime($data['date']));
-    //         $this->eventDateRepository->save($eventDate);
-    //         $this->toaster->makeToast("La date a été modifiée avec succès.", Toaster::SUCCESS);
+        if ($request->getMethod() === 'POST') {
+            $data = $request->getParsedBody();
+            $eventDate->setDate(new \DateTime($data['date']));
+            $this->eventDateRepository->save($eventDate);
+            $this->toaster->makeToast("La date a été modifiée avec succès.", Toaster::SUCCESS);
             
-    //     }
+        }
 
-    //     return $this->renderer->render('@admin/edit-date', [
-    //         'event' => $event,
-    //         'eventDate' => $eventDate
-    //     ]);
-    // }
+        return $this->renderer->render('@admin/edit-date', [
+            'event' => $event,
+            'eventDate' => $eventDate
+        ]);
+    }
 }
