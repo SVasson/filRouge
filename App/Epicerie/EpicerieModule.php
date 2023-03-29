@@ -31,6 +31,7 @@ class EpicerieModule extends AbstractModule
         //Ensembles d'action possible
         $EpicerieAction = $container->get(EpicerieAction::class);
 
+
         //Declaration du chemin des vue sous le namespace 'epicerie'
         $this->renderer->addPath('epicerie', __DIR__ . DIRECTORY_SEPARATOR . 'view');
 
@@ -38,11 +39,10 @@ class EpicerieModule extends AbstractModule
         $this->router->get('/aPropos', [$EpicerieAction, 'aPropos'], 'epicerie.apropos');
         
         //Ajout des routes pour d'autres pages
-        $this->router->get('/evenement', [$EpicerieAction, 'evenement'], 'epicerie.evenement');
         $this->router->get('/contact', [$EpicerieAction, 'contact'], 'epicerie.contact');
         $this->router->get('/inscription', [$EpicerieAction, 'inscription'], 'epicerie.inscription');
         $this->router->get('/connexion', [$EpicerieAction, 'connexion'], 'epicerie.connexion');
-        $this->router->get('/cuisine', [$EpicerieAction, 'cuisine'], 'epicerie.cuisine');
-        $this->router->get('/coiffeur', [$EpicerieAction, 'coiffeur'], 'epicerie.coiffeur');
+        $this->router->get('/admin/addEvent', [$EpicerieAction, 'addEvent'], 'epicerie.addEvent');
+        $this->router->get('/listEventUser', [$EpicerieAction, 'listEventUser'], 'epicerie.listEventUser');
     }
 }

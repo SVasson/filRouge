@@ -2,19 +2,37 @@
 
 namespace App\Epicerie\Action;
 
-use Core\Framework\Renderer\RendererInterface;
+use Exception;
+use DateTimeImmutable;
+use Model\Entity\Event;
+use Core\Toaster\Toaster;
+use GuzzleHttp\Psr7\Response;
+use Model\Entity\Participant;
+use Doctrine\ORM\EntityManager;
+use Core\Session\SessionInterface;
+use GuzzleHttp\Psr7\ServerRequest;
+use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Core\Framework\Renderer\RendererInterface;
 
 class EpicerieAction
 {
+    private Toaster $toaster;
+    private EntityManager $entityManager;
     private RendererInterface $renderer;
+    private ContainerInterface $container;
+    private SessionInterface $session;
+    private $repository;
 
-    public function __construct(RendererInterface $renderer)
+    public function __construct(RendererInterface $renderer, SessionInterface $session, Toaster $toaster, EntityManager $entityManager)
     {
         $this->renderer = $renderer;
+        $this->session = $session;
+        $this->entityManager = $entityManager;
+        $this->toaster = $toaster;
     }
-
+   
     /**
      * Affiche la page A propos
      * @param ServerRequestInterface $request
@@ -25,35 +43,6 @@ class EpicerieAction
         return $this->render('@epicerie/aPropos');
     }
 
-    /**
-     * Affiche la page Événement
-     * @param ServerRequestInterface $request
-     * @return ResponseInterface
-     */
-    public function evenement(ServerRequestInterface $request): ResponseInterface
-    {
-        return $this->render('@epicerie/evenement');
-    }
-    /**
-     * Affiche la page cuisine
-     * @param ServerRequestInterface $request
-     * @return ResponseInterface
-     */
-    public function cuisine(ServerRequestInterface $request): ResponseInterface
-    {
-        return $this->render('@epicerie/cuisine');
-    }
-
-    /**
-     * Affiche la page coiffeur
-     * @param ServerRequestInterface $request
-     * @return ResponseInterface
-     */
-    public function coiffeur(ServerRequestInterface $request): ResponseInterface
-    {
-        return $this->render('@epicerie/coiffeur');
-    }
-    
     /**
      * Affiche la page Contact
      * @param ServerRequestInterface $request
@@ -99,4 +88,23 @@ class EpicerieAction
 
         return $response;
     }
+
+// ///////////////////////////////////////////
+
+
+public function listEventUser(ServerRequestInterface $request): ResponseInterface
+{
+    // Récupération des événements depuis la base de données
+    $events = $this->entityManager->getRepository(Event::class)->findAll();
+
+    // Rendu de la vue avec les événements
+    return $this->render('@epicerie/listEventUser', [
+        'events' => $events,
+        'user' => $this->session->get('user')
+    ]);
+}
+/////////////////////////////////////
+
+
+
 }

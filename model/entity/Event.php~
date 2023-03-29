@@ -27,6 +27,16 @@ class Event
      */
     private string $description;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private \DateTimeInterface $startDate;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private \DateTimeInterface $endDate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -50,5 +60,25 @@ class Event
     public function setDescription(string $description): void
     {
         $this->description = $description;
+    }
+
+    public function getStartDate(): \DateTimeInterface
+    {
+        return $this->startDate;
+    }
+
+    public function setStartDate(\DateTimeInterface $startDate): void
+    {
+        $this->startDate = $startDate;
+    }
+
+    public function getEndDate(): \DateTimeInterface
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate(\DateTimeInterface $endDate): void
+    {
+        $this->endDate = $endDate;
     }
 }

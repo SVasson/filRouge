@@ -1,10 +1,13 @@
+
+
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100dvh;
-    min-width: 100dvw;
+    min-width: 90dvw;
+    margin-top: 5%;
+    background-color: #a6ba418e;
 }
 
 .userFormViewPort {
@@ -13,26 +16,107 @@ main {
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.4);
     border-radius: 15px;
+    background-color: #A6BA41;
+
+
 }
 
 .formContainer {
     width: 100%;
     position: relative;
-    height: 450px;
+    height: 500px;
+    background-color: #A6BA41;
+
 }
 
 .formContainer form {
     position: absolute;
     min-width: 450px;
     transition: .5s all ease-in-out;
+    height: 100%;
+    margin-top: 5%;
+
 }
 
 .formConnexion {
-    top: 0;
+    top: 15%;
     left: 0;
+    text-align: center;
+
+ 
+    
 }
 
 .formInscription {
     top: 0;
     left: 110%;
+    text-align: center;
 }
+
+.btn-primary{
+ width: 48%;
+ height: 30px;
+ margin-left: 1.5%;
+ border-radius: 5px;
+ background-color: #DBA10F;
+ border: solid 1px;
+}
+
+.btn-secondary{
+    width: 48%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #DBA10F;
+    border: solid 1px;
+   }
+
+.form-control{
+    width: 80%;
+    height: 30px;
+
+}
+.submit{
+    width: 48%;
+    height: 30px;
+    margin-top: 10%;
+    border-radius: 5px;
+    background-color: #DBA10F;
+    border: solid 1px;
+}
+
+.form-floating{
+    margin-top: 5%;
+}
+
+.mb-3{
+    margin-top: 3%;
+}
+
+
+.cliquez{
+    color: #DBA10F;
+    text-decoration: underline;
+}
+
+.mdpOublier{
+    margin-top: 3%;
+}
+
+
+.g-recaptcha{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+
+}
+.submit2{
+    width: 48%;
+    height: 30px;
+    margin-top: 3%;
+    border-radius: 5px;
+    background-color: #DBA10F;
+    border: solid 1px;
+}
+

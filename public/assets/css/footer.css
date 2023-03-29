@@ -1,0 +1,80 @@
+
+
+
+.footer1{
+    background-color: white;
+      height: 200px;
+      margin-top: 5%;
+      display: flex;
+  }
+  .logoFooter{
+      width: 20%;
+      height: 100%;
+      margin-top: 1.5%;
+      margin-left: 2%;
+      margin-right: 2%;
+  }
+  .logoFooter img{
+      width: 197px;
+
+  }
+  .logoDonFooter{
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      margin-top: 1.5%;
+      margin-right: 2%;
+  
+  }
+  .logoDonFooter img{
+      width: 130px;
+      height: 80%;
+  }
+  .fa-brands{
+      margin-top: 90px;
+      font-size: 25px;
+      margin-right: 20px;
+  }
+  .fa-facebook{
+      color: #3b5998;
+  }
+  .fa-linkedin{
+      color: #0077b5;
+  }
+
+  .magasin{
+    width: 30%;
+    margin-top: 1.5%;
+  }
+  .magasin div{
+    width: 95%;
+    height: 100%;
+  }
+
+
+  .MentionLegales{
+    background-color: white;
+    border-top: 1px dashed grey;
+    text-align: center;
+
+
+  }
+
+  .mapFooter{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-left: solid 1px gray;
+    border-right: solid 1px gray;
+  }
+
+  .planDuSite{
+    margin-top: 1.5%;
+    margin-left: 5%;
+  }
+
+  .planDuSite a{
+    text-decoration: none;
+    color: black;
+  }

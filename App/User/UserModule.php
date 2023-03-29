@@ -1,4 +1,5 @@
 <?php
+
 namespace App\User;
 
 use App\User\Action\UserAction;
@@ -19,6 +20,7 @@ class UserModule extends AbstractModule
     public function __construct(ContainerInterface $container)
     {
         $userAction = $container->get(UserAction::class);
+
         $this->container = $container;
         $this->router = $container->get(Router::class);
         $this->renderer = $container->get(RendererInterface::class);

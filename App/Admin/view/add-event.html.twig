@@ -1,0 +1,31 @@
+{% extends "admin.layout.html.twig" %}
+
+{% block body %}
+    <h1>Ajouter un événement</h1>
+
+    {% if toaster.hasMessages() %}
+        {{ toaster.render() }}
+    {% endif %}
+
+    <form method="post" action="">
+        <div>
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <div>
+            <label for="startDate">Date de début</label>
+            <input type="datetime-local" id="startDate" name="startDate" required>
+        </div>
+        <div>
+            <label for="endDate">Date de fin</label>
+            <input type="datetime-local" id="endDate" name="endDate" required>
+        </div>
+        <div>
+            <button type="submit">Ajouter l'événement</button>
+        </div>
+    </form>
+{% endblock %}

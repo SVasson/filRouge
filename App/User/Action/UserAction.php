@@ -2,18 +2,20 @@
 namespace App\User\Action;
 
 
-use Core\Framework\Auth\UserAuth;
-use Core\Framework\Renderer\RendererInterface;
-use Core\Framework\Router\RedirectTrait;
-use Core\Framework\Router\Router;
-use Core\Framework\Validator\Validator;
-use Core\Session\SessionInterface;
+use Model\Entity\User;
 use Core\Toaster\Toaster;
 use Doctrine\ORM\EntityManager;
+use Core\Framework\Auth\UserAuth;
+use Core\Framework\Router\Router;
+use Core\Session\SessionInterface;
 use Doctrine\ORM\EntityRepository;
 use GuzzleHttp\Psr7\ServerRequest;
-use Model\Entity\User;
 use Psr\Container\ContainerInterface;
+use Core\Framework\Validator\Validator;
+use Psr\Http\Message\ResponseInterface;
+use Core\Framework\Router\RedirectTrait;
+use Psr\Http\Message\ServerRequestInterface;
+use Core\Framework\Renderer\RendererInterface;
 
 class UserAction
 {
@@ -25,6 +27,7 @@ class UserAction
     private Toaster $toaster;
     private EntityRepository $repository;
     private SessionInterface $session;
+    
 
     public function __construct(ContainerInterface $container)
     {
@@ -108,4 +111,8 @@ class UserAction
             'user' => $user
         ]);
     }
+
+    
+
+ 
 }
