@@ -26,30 +26,75 @@
 
 .texteApropos {
     background-color: #A6BA41;
-    width: 50%;
+    width: 70%;
+    height: 250px;
     position: absolute;
-    margin-top: -350px;
-    margin-left: 500px;
+    margin-top: -390px;
+    margin-left: 300px;
     text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
     color: white;
-    font-size: 35px;
+    font-size: 28px;
 }
 
 .imgApropos{
-    border: solid;
-
+    width: 50%;
+    height: 600px;
+    overflow: hidden;
+    margin-left: 34.3%;
+    margin-top: 5%;
 }
 
 .imgTexte{
-    border: solid;
     border-left: 10px #DBA10F solid;
     width: 38%;
     height: 53%;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-top: 55px;
     margin-left: 12%;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imgApropos img{
+    width: 100%;
+}
+
+.imgTexte h2{
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.imgTexte p{
+    margin-left: 2%;
+    font-size: 18px;
+    width: 95%;
+    height: 90%;
+}
+.imgTexte2{
+    border-left: 10px #A6BA41 solid;
+    width: 38%;
+    height: 53%;
+    position: absolute;
+    margin-top: 55px;
+    margin-left: 12%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.imgTexte2 h2{
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.imgTexte2 p{
+    margin-left: 2%;
+    font-size: 18px;
+    width: 95%;
+    height: 90%;
 }
