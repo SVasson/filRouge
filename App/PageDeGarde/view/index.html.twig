@@ -1,93 +1,106 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-<div class="maVideo">
-<video class="myVideo" autoplay loop controls >
-     <source src="{{ videoUrl }}" type="{{ videoType }}">
-</video>
-</div>
-<section class="surVideo">
-<div class="presentation"><h1>Présentation</h1></div>
-<div class="texte"><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-sed do eiusmod tempor incididunt ut labore et dolore magna</p></div>
-<div class="boutton"><a  href="{{ path('epicerie.apropos') }}"><button>En savoir plus</button></a></div>
-</section>
-{# <div class="scroll-down">
-  <span class="arrow-down"></span>
-</div> #}
+	<div class="maVideo">
+		<video class="myVideo" autoplay loop controls>
+			<source src="{{ videoUrl }}" type="{{ videoType }}">
+		</video>
+	</div>
+	<section class="surVideo">
+		<div class="presentation">
+			<h1>Présentation</h1>
+		</div>
+		<div class="texte">
+			<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+				sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+		</div>
+		<div class="boutton">
+			<a href="{{ path('epicerie.apropos') }}">
+				<button>En savoir plus</button>
+			</a>
+		</div>
+	</section>
+	{# <div class="scroll-down">
+	  <span class="arrow-down"></span>
+	</div> #}
 
-<section class"carte">
-<div class="where">
-<div class="ouNousTrouver">
-<h2>OÙ NOUS TROUVER ?</h2>
-<br>
-<hr>
-<br>
-<p>Metz Epicerie Mozart/Epicerie solidaire</p>
-<br>
-<hr>
-<br>
-<p>Lundi au Samedi: 09h - 19h30</p>
-<p>sauf le dimanche: 09h - 12h30</p>
-<br>
-<hr>
-<br>
-<p>14 bis, rue Mozart,</p>
-<p>57000 Metz</p>
-<br>
-<hr>
-<br>
-<p>Tél: 06 07 25 13 12</p>
-</div>
-</div>
-<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2611.7840728464607!2d6.165806015847295!3d49.109742390929405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794dc05ffd2a307%3A0x8cc689c07e40239c!2s14%20Rue%20Mozart%2C%2057000%20Metz!5e0!3m2!1sfr!2sfr!4v1679903830810!5m2!1sfr!2sfr" width="900" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-</section>
+	<section class"carte">
+		<div class="where">
+			<div class="ouNousTrouver">
+				<h2>OÙ NOUS TROUVER ?</h2>
+				<br>
+				<hr>
+				<br>
+				<p>Metz Epicerie Mozart/Epicerie solidaire</p>
+				<br>
+				<hr>
+				<br>
+				<p>Lundi au Samedi: 09h - 19h30</p>
+				<p>sauf le dimanche: 09h - 12h30</p>
+				<br>
+				<hr>
+				<br>
+				<p>14 bis, rue Mozart,</p>
+				<p>57000 Metz</p>
+				<br>
+				<hr>
+				<br>
+				<p>Tél: 06 07 25 13 12</p>
+			</div>
+		</div>
+		<div class="map">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2611.7840728464607!2d6.165806015847295!3d49.109742390929405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794dc05ffd2a307%3A0x8cc689c07e40239c!2s14%20Rue%20Mozart%2C%2057000%20Metz!5e0!3m2!1sfr!2sfr!4v1679903830810!5m2!1sfr!2sfr" width="900" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+	</section>
 
-<section class="contact">
-<div class="caseContact">
-<div class="blocContact">
-<br>
-<br>
-<h2>CONTACT</h2>
-<br>
-<p>Une demande particulière, n’hésitez </p>
-<p>pas à nous contacter. Nous vous répondrons au plus vite</p>
-<br>
-<form action="#" method="POST">
-  {# <label for="nom">Nom:</label> #}
-  <input type="text" id="nom" name="nom" style="border: none;width: 100%;" placeholder="Nom*" required>
-<hr>
-<br>
-  {# <label for="prenom">Prénom:</label> #}
-  <input type="text" id="prenom" name="prenom"  style="border: none;width: 100%;" placeholder="Prénom*" required>
-<hr>
-<br>
-  {# <label for="adresse">Adresse Postale:</label> #}
-  <input type="text" id="adresse" name="adresse"  style="border: none;width: 100%;" placeholder="Adresse Postale*" required>
-<hr>
-<br>
-  {# <label for="email">Adresse Email:</label> #}
-  <input type="email" id="email" name="email"  style="border: none;width: 100%;" placeholder="Adresse Email*" required>
-<hr>
-<br>
-  {# <label for="telephone">Numéro de Téléphone:</label> #}
-  <input type="tel" id="telephone" name="telephone"  style="border: none;width: 100%;" placeholder="Numéro de Téléphone*" required>
-<hr>
-<br>
-  {# <label for="message">Votre message:</label> #}
-  <textarea id="message" name="message"  style="width: 100%; height: 40%; border: none;" placeholder="Votre message*" required></textarea>
-<hr>
-<br>
-  <input type="submit" value="Envoyer votre message ->" style="margin-left: 65%; border: none; background-color: white; cursor: pointer;">
-</form>
-</div>
-</div>
+	<section class="contact">
+		<div class="caseContact">
+			<div class="blocContact">
+				<br>
+				<br>
+				<h2>CONTACT</h2>
+				<br>
+				<p>Une demande particulière, n’hésitez
+				</p>
+				<p>pas à nous contacter. Nous vous répondrons au plus vite</p>
+				<br>
+				<form
+					action="#" method="POST">
+					{# <label for="nom">Nom:</label> #}
+					<input type="text" id="nom" name="nom" style="border: none;width: 100%;" placeholder="Nom*" required>
+					<hr>
+					<br>
+					{# <label for="prenom">Prénom:</label> #}
+					<input type="text" id="prenom" name="prenom" style="border: none;width: 100%;" placeholder="Prénom*" required>
+					<hr>
+					<br>
+					{# <label for="adresse">Adresse Postale:</label> #}
+					<input type="text" id="adresse" name="adresse" style="border: none;width: 100%;" placeholder="Adresse Postale*" required>
+					<hr>
+					<br>
+					{# <label for="email">Adresse Email:</label> #}
+					<input type="email" id="email" name="email" style="border: none;width: 100%;" placeholder="Adresse Email*" required>
+					<hr>
+					<br>
+					{# <label for="telephone">Numéro de Téléphone:</label> #}
+					<input type="tel" id="telephone" name="telephone" style="border: none;width: 100%;" placeholder="Numéro de Téléphone*" required>
+					<hr>
+					<br>
+					{# <label for="message">Votre message:</label> #}
+					<textarea id="message" name="message" style="width: 100%; height: 40%; border: none;" placeholder="Votre message*" required></textarea>
+					<hr>
+					<br>
+					<input type="submit" value="Envoyer votre message ->" style="margin-left: 65%; border: none; background-color: white; cursor: pointer;">
+				</form>
+			</div>
+		</div>
 
-<div class="maVideo2">
-<span class="barreverte"></span>
-<video class="myVideo2" autoplay loop controls >
-     <source src="{{ secondVideoUrl }}" type="{{ secondVideoType }}">
-</video></div>
+		<div class="maVideo2">
+			<span class="barreverte"></span>
+			<video class="myVideo2" autoplay loop controls>
+				<source src="{{ secondVideoUrl }}" type="{{ secondVideoType }}">
+			</video>
+		</div>
 
-</section>
+	</section>
 {% endblock %}

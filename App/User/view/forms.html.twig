@@ -1,78 +1,86 @@
 {% extends 'layout.html.twig' %}
 
 {% block stylesheet %}
-    <link rel="stylesheet" href="{{ assets('/assets/css/userForm.css') }}" />
-    <link rel="stylesheet" href="{{ assets('/assets/css/nav.css') }}"/>
-    <link rel="stylesheet" href="{{ assets('/assets/css/header.css') }}"/>
-    <link rel="stylesheet" href="{{ assets('/assets/css/footer.css') }}"/>
+	<link rel="stylesheet" href="{{ assets('/assets/css/userForm.css') }}"/>
+	<link rel="stylesheet" href="{{ assets('/assets/css/nav.css') }}"/>
+	<link rel="stylesheet" href="{{ assets('/assets/css/header.css') }}"/>
+	<link rel="stylesheet" href="{{ assets('/assets/css/footer.css') }}"/>
 {% endblock %}
 
 {% block scripts %}
-     <script type="text/javascript" src="{{ assets('/assets/js/formSlider.js') }}"></script>
-     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-     <script src="https://kit.fontawesome.com/e73be59cbc.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="{{ assets('/assets/js/formSlider.js') }}"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<script src="https://kit.fontawesome.com/e73be59cbc.js" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block body %}
+	<div class="monImg">
+		<img src="/assets/img/8307423_clavier-leparisien.jpg">
+	</div>
+	<div class="userFormViewPort">
 
-    <div class="userFormViewPort">
-    
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-primary" onclick="slider('connexion')">Connexion</button>
-            <button type="button" class="btn btn-secondary" onclick="slider('inscription')">Inscription</button>
-        </div>
-        <div class="formContainer d-flex">
-            {# Formulaire connexion #}
-            <form method="POST" class="p-4 formConnexion" action="{{ path('user.connexion') }}">
-                <div class="form-floating mb-3">
-                <label for="connexion_email" class="formUser">Addresse Email</label><br>
-                    <input type="email" class="form-control" name="mail" id="connexion_email" placeholder="nom@exemple.com">
-                    
-                </div>
-                <div class="form-floating">
-                <label for="connexion_password" class="formUser">Mot de passe</label><br>
-                    <input type="password" class="form-control" name="mdp" id="connexion_password" placeholder="Mot de passe">
-                    
-                </div>
-                <input type="submit" value="Connexion" class="submit">
+		<div class="btn-group" role="group" aria-label="Basic example">
+			<button type="button" class="btn btn-primary" onclick="slider('connexion')">Connexion</button>
+			<button type="button" class="btn btn-secondary" onclick="slider('inscription')">Inscription</button>
+		</div>
+		<div
+			class="formContainer d-flex">
+			{# Formulaire connexion #}
+			<form method="POST" class="p-4 formConnexion" action="{{ path('user.connexion') }}">
+				<div class="zoneDeco">
+					<label for="deconnexion" class="formUser">Si vous êtes connecter, vous pouvez cous deconnecter ici :</label>
+					<a href="{{ path('user.logout') }}" class="deco"> <p>Deconnexion</p> </a>
+					<label for="deconnexion2" class="formUser">Sinon vous pouvez vous connecter ici :</label>
+				</div>
+				<div class="form-floating mb-3">
+					<label for="connexion_email" class="formUser">Addresse Email</label><br>
+					<input type="email" class="form-control" name="mail" id="connexion_email" placeholder="nom@exemple.com">
 
-             <div class="g-recaptcha" data-sitekey="6LethUAlAAAAAGK1Kwy40ZwxLooQpds6SjoHm8V-"></div>
+				</div>
+				<div class="form-floating">
+					<label for="connexion_password" class="formUser">Mot de passe</label><br>
+					<input type="password" class="form-control" name="mdp" id="connexion_password" placeholder="Mot de passe">
 
-                <p class="mdpOublier">Mot de Passe oublié ?</p>
-                <p class="cliquez">Cliquez ici</p>
-            </form>
+				</div>
+				<input type="submit" value="Connexion" class="submit">
 
-            {# Formulaire inscription #}
-            <form method="POST" class="p-4 formInscription" action="{{ path('user.new') }}">
-                <div class="form-floating mb-3">
-                 <label for="nom">Nom</label><br>
-                    <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom">
-                   
-                </div>
-                <div class="form-floating mb-3">
-                 <label for="prenom" class="formUser">Prénom</label><br>
-                    <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom">
-                   
-                </div>
-                <div class="form-floating mb-3">
-                <label for="mail" class="formUser">Addresse Email</label><br>
-                    <input type="text" class="form-control" name="mail" id="mail" placeholder="nom@exemple.com">
-                    
-                </div>
-                <div class="form-floating">
-                <label for="floatingPassword" class="formUser">Mot de passe</label><br>
-                    <input type="password" class="form-control" name="mdp" id="floatingPassword" placeholder="Mot de passe">
-                </div>
-                <div class="form-floating">
-                <label for="floatingPasswordConfirm" class="formUser">Confirmer le mot de passe</label><br>
-                    <input type="password" class="form-control" name="mdp_confirm" id="floatingPasswordConfirm" placeholder="Mot de passe">
-                </div>
+				<div class="g-recaptcha" data-sitekey="6LethUAlAAAAAGK1Kwy40ZwxLooQpds6SjoHm8V-"></div>
 
-                <div class="g-recaptcha" data-sitekey="6LethUAlAAAAAGK1Kwy40ZwxLooQpds6SjoHm8V-"></div>
+				<p class="mdpOublier">Mot de Passe oublié ?</p>
+				<p class="cliquez">Cliquez ici</p>
+			</form>
 
-                <input type="submit" value="Inscription" class="submit2">
-            </form>
-        </div>
-    </div>
+			{# Formulaire inscription #}
+			<form method="POST" class="p-4 formInscription" action="{{ path('user.new') }}">
+				<div class="form-floating mb-3">
+					<label for="nom">Nom</label><br>
+					<input type="text" class="form-control" name="nom" id="nom" placeholder="Nom">
 
+				</div>
+				<div class="form-floating mb-3">
+					<label for="prenom" class="formUser">Prénom</label><br>
+					<input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom">
+
+				</div>
+				<div class="form-floating mb-3">
+					<label for="mail" class="formUser">Addresse Email</label><br>
+					<input type="text" class="form-control" name="mail" id="mail" placeholder="nom@exemple.com">
+
+				</div>
+				<div class="form-floating">
+					<label for="floatingPassword" class="formUser">Mot de passe</label><br>
+					<input type="password" class="form-control" name="mdp" id="floatingPassword" placeholder="Mot de passe">
+				</div>
+				<div class="form-floating">
+					<label for="floatingPasswordConfirm" class="formUser">Confirmer le mot de passe</label><br>
+					<input type="password" class="form-control" name="mdp_confirm" id="floatingPasswordConfirm" placeholder="Mot de passe">
+				</div>
+
+				<div class="g-recaptcha" data-sitekey="6LethUAlAAAAAGK1Kwy40ZwxLooQpds6SjoHm8V-"></div>
+
+				<input type="submit" value="Inscription" class="submit2">
+			</form>
+		</div>
+	</div>
+	<div></div>
 {% endblock %}

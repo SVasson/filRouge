@@ -1,15 +1,35 @@
 {% extends "admin.layout.html.twig" %}
 
 {% block body %}
-    <form method="POST" action="" class="card p-4" style="max-width: 500px;">
-        <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Mail</span>
-            <input type="text" name="mail" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Mot de passe</span>
-            <input type="password" name="mdp" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <input type="submit" value="Se connecter" />
-    </form>
+<div class="monImg">
+		<img src="/assets/img/8307423_clavier-leparisien.jpg">
+	</div>
+
+<div class="userFormViewPort">
+
+<div
+			class="formContainer d-flex">
+            <h1 class="loginAdmin">Connexion en tant que Admin</h1>
+<form method="POST" class="p-4 formConnexion" action="">
+
+				<div class="zoneDeco">
+					<label for="deconnexion" class="formUser">Si vous êtes connecter, vous pouvez cous deconnecter ici :</label>
+					<a href="{{ path('admin.logout') }}" class="deco"> <p>Deconnexion</p> </a>
+					<label for="deconnexion2" class="formUser">Sinon vous pouvez vous connecter ici :</label>
+				</div>
+				<div class="form-floating mb-3">
+					<label for="connexion_email" class="formUser">Addresse Email</label><br>
+					<input type="email" class="form-control" name="mail" id="connexion_email" placeholder="nom@exemple.com">
+
+				</div>
+				<div class="form-floating">
+					<label for="connexion_password" class="formUser">Mot de passe</label><br>
+					<input type="password" class="form-control" name="mdp" id="connexion_password" placeholder="Mot de passe">
+
+				</div>
+				<input type="submit" value="Connexion" class="submit">
+
+			</form>
+            </div>
+            </div>
 {% endblock %}

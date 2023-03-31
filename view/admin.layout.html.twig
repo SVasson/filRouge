@@ -5,10 +5,14 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		{% block stylesheet %}
+
 			<link rel="stylesheet" href="{{ assets('/assets/css/nav.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/header.css') }}"/>
-            <link rel="stylesheet" href="{{ assets('/assets/css/pageDeGarde.css') }}"/>
+			<link rel="stylesheet" href="{{ assets('/assets/css/pageDeGarde.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/footer.css') }}"/>
+			<link rel="stylesheet" href="{{ assets('/assets/css/aPropos.css') }}" />
+			<link rel="stylesheet" href="{{ assets('/assets/css/logAdmin.css') }}" />
+			
 		{% endblock %}
 		<title>{{ siteName }}</title>
 
@@ -101,7 +105,7 @@
 						
 						<a href="{{ path('epicerie.apropos') }}">A propos </a><br>
 
-						<a href=" {{ path('epicerie.listEventUser') }} ">Liste des évenement</a><br>
+						<a href=" {{ path('user.listEventUser') }} ">Liste des évenement</a><br>
 
 						<a href=" {{ path('user.login') }} ">Connexion/Inscription</a><br>
 
@@ -111,6 +115,7 @@
 			</div>
 			</section>
 			<div class="logoDonFooter">
+		
 			<i class="fa-brands fa-facebook"></i>
 			<i class="fa-brands fa-linkedin"></i>
 				<img src="/assets/img/pngegg (24).png">

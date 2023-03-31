@@ -92,17 +92,7 @@ class EpicerieAction
 // ///////////////////////////////////////////
 
 
-public function listEventUser(ServerRequestInterface $request): ResponseInterface
-{
-    // Récupération des événements depuis la base de données
-    $events = $this->entityManager->getRepository(Event::class)->findAll();
 
-    // Rendu de la vue avec les événements
-    return $this->render('@epicerie/listEventUser', [
-        'events' => $events,
-        'user' => $this->session->get('user')
-    ]);
-}
 /////////////////////////////////////
 
 

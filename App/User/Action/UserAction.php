@@ -1,9 +1,12 @@
 <?php
+
 namespace App\User\Action;
 
 
 use Model\Entity\User;
+use Model\Entity\Event;
 use Core\Toaster\Toaster;
+use GuzzleHttp\Psr7\Response;
 use Doctrine\ORM\EntityManager;
 use Core\Framework\Auth\UserAuth;
 use Core\Framework\Router\Router;
@@ -25,13 +28,15 @@ class UserAction
     private RendererInterface $renderer;
     private Router $router;
     private Toaster $toaster;
+    private EntityManager $entityManager;
     private EntityRepository $repository;
     private SessionInterface $session;
-    
 
-    public function __construct(ContainerInterface $container)
+
+    public function __construct(ContainerInterface $container,  EntityManager $entityManager)
     {
         $this->container = $container;
+        $this->entityManager = $entityManager;
         $this->renderer = $container->get(RendererInterface::class);
         $this->toaster = $container->get(Toaster::class);
         $this->router = $container->get(Router::class);
@@ -61,16 +66,15 @@ class UserAction
             ->isUnique('mail', $this->repository, 'mail')
             ->getErrors();
 
-        if($errors)
-        {
-            foreach($errors as $error) {
+        if ($errors) {
+            foreach ($errors as $error) {
                 $this->toaster->makeToast($error->toString(), Toaster::ERROR);
             }
             return $this->redirect('user.login');
         }
         $result = $auth->signIn($data);
 
-        if($result !== true) {
+        if ($result !== true) {
             return $result;
         }
         $this->toaster->makeToast("Inscription reussie, vous pouvez vous connécter", Toaster::SUCCESS);
@@ -103,16 +107,47 @@ class UserAction
         $this->toaster->makeToast("Connexion échoué, merci de vérifier email et mot de passe", Toaster::ERROR);
         return $this->redirect('user.login');
     }
+    public function logout()
+    {
+        $auth = $this->container->get(UserAuth::class);
+        $auth->logout();
+        $this->toaster->makeToast('Deconnexion reussie.', Toaster::SUCCESS);
+        return (new Response())
+            ->withHeader('Location', '/login');
+    }
 
+    /**
+     * Rend une vue avec le RendererInterface
+     * @param string $view
+     * @param array $params
+     * @return ResponseInterface
+     */
+    private function render(string $view, array $params = []): ResponseInterface
+    {
+        $content = $this->renderer->render($view, $params);
+
+        $response = new \GuzzleHttp\Psr7\Response();
+        $response->getBody()->write($content);
+
+        return $response;
+    }
+    public function listEventUser(ServerRequestInterface $request): ResponseInterface
+    {
+        
+        // Récupération des événements depuis la base de données
+        $events = $this->entityManager->getRepository(Event::class)->findAll();
+
+        // Rendu de la vue avec les événements
+        return $this->render('@user/listEventUser', [
+            'events' => $events,
+            'user' => $this->session->get('user')
+        ]);
+    }
     public function home(ServerRequest $request)
     {
         $user = $this->session->get('auth');
-        return $this->renderer->render('@user/home',[
+        return $this->renderer->render('@user/home', [
             'user' => $user
         ]);
     }
-
-    
-
- 
 }

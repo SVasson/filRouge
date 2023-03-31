@@ -43,6 +43,6 @@ class EpicerieModule extends AbstractModule
         $this->router->get('/inscription', [$EpicerieAction, 'inscription'], 'epicerie.inscription');
         $this->router->get('/connexion', [$EpicerieAction, 'connexion'], 'epicerie.connexion');
         $this->router->get('/admin/addEvent', [$EpicerieAction, 'addEvent'], 'epicerie.addEvent');
-        $this->router->get('/listEventUser', [$EpicerieAction, 'listEventUser'], 'epicerie.listEventUser');
+
     }
 }

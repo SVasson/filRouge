@@ -60,6 +60,10 @@ class UserAuth
 
         return false;
     }
+    public function logout(): void
+    {
+        $this->session->delete('auth');
+    }
 
     public function isLogged(): bool
     {

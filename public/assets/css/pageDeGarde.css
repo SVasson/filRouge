@@ -75,7 +75,9 @@ button {
     width: 120px;
     height: 40px;
     border-radius: 15px;
+    cursor: pointer;
 }
+
 
 .map {
     margin-left: 47%;
@@ -100,11 +102,11 @@ button {
     font-weight: bold;
 }
 .ouNousTrouver h2{
-    font-size: 40px;
+    font-size: 30px;
     }
 
 .ouNousTrouver p{
-font-size: 30px;
+font-size: 20px;
 }
 .ouNousTrouver hr{
     width: 60%;
