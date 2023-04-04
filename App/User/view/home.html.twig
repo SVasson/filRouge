@@ -1,6 +1,47 @@
 {% extends 'user.layout.html.twig' %}
 
 {% block body %}
-    <h1>User Home</h1>
-    <p>Bienvenue {{ user.nom }}</p>
+
+	<div class="zoneNom">
+		<h1>Bienvenue sur votre page personnelle
+		</h1>
+		<h1 class="nom">
+			{{ user.nom }}</h1>
+	</div>
+
+
+	<h3 class="dispoEvent">Voici la liste des évenements qui sont disponibles:</h3>
+	<article class="zoneEvent">
+		<section class="cuisine">
+
+			<div class="cuisineImg"><img src="/assets/img/cours-de-cuisine.jpg" alt=""></div><hr class="traitCards">
+
+			<div class="cuisineTitre">
+				<h2>Cuisine</h2>
+			</div>
+			<div>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quo perspiciatis inventore dicta ducimus? Maiores, id dolorum delectus tenetur repellendus itaque, quidem necessitatibus aut hic, consequatur minus? Repellendus, doloremque delectus.</p>
+			</div><hr class="traitCards">
+			<div class="inputCuisine"><input type="button" value="En savoir plus" class="cuisineBouton"></div>
+
+		</section>
+		<section class="coiffeur">
+			<div class="cuisineImg"><img src="/assets/img/B9719358199Z.1_20190424190713_000+GT4DF89G4.2-0.jpg" alt=""></div><hr class="traitCards">
+
+			<div class="coiffeurTitre">
+				<h2>Coiffeur</h2>
+			</div>
+			<div>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quo perspiciatis inventore dicta ducimus? Maiores, id dolorum delectus tenetur repellendus itaque, quidem necessitatibus aut hic, consequatur minus? Repellendus, doloremque delectus.</p>
+			</div><hr class="traitCards">
+			<div class="inputCoiffeur"><input type="button" class="coiffeurBouton" value="En savoir plus"></div>
+		</section>
+	</article>
+	<section class="sectionMedecin">
+		<h3 class="annonceMedecin">Medecin</h3>
+		<div><img src="/assets/img/7449867_3641634.jpg" alt=""></div>
+        <p class="texteMedecin">Afin de vous assurer une meilleur santé et tout cela gratuitement le Docteur Jean se porte volontaire pour réaliser des consultations tout les Jeudi de 15h à 18h et tout cela bénévolement, donc n'hésitez pas à vous présenter les jours de présences.</p>
+	</section>
+
+
 {% endblock %}

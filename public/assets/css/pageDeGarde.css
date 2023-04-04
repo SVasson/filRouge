@@ -84,7 +84,7 @@ button {
     margin-top: 3.5%;
 }
 
-.where{
+.where {
     border-left: 10px #DBA10F solid;
     width: 38%;
     height: 53%;
@@ -92,64 +92,72 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 55px;
+    margin-top: 49px;
     margin-left: 12%;
     background-color: white;
 
 }
-.ouNousTrouver{
+
+.ouNousTrouver {
     width: 85%;
     font-weight: bold;
 }
-.ouNousTrouver h2{
+
+.ouNousTrouver h2 {
     font-size: 30px;
-    }
-
-.ouNousTrouver p{
-font-size: 20px;
 }
-.ouNousTrouver hr{
+
+.ouNousTrouver p {
+    font-size: 20px;
+}
+
+.ouNousTrouver hr {
     width: 60%;
-    }
+}
 
-    .maVideo2 {
+.maVideo2 {
 
-        width: 60%;
-        height: 550px;
-        overflow: hidden;
-        margin-left: 34.3%;
-        margin-top: 5%;
-    
-    }
-    .myVideo2 {
-        width: 100%;
-    }
-    .barreverte{
-        background-color: #A6BA41;
-        width: 15%;
-        height: 59.2%;
-        position: absolute;
-        opacity: 0.5;
-    }
-    .caseContact{
-        background-color: white;
-        margin-top: 1.5%;
-        margin-left: 12%;
-        border-left: 10px #A6BA41 solid;
-        width: 35%;
-        height: 53%;
-        position: absolute;
-        z-index: 1;
+    width: 60%;
+    height: 550px;
+    overflow: hidden;
+    margin-left: 34.3%;
+    margin-top: 5%;
 
-    }
-    .blocContact{
-        display: flex;
-        flex-direction: column;
-        width: 70%;
-       height: 100%;
-       margin-left: 10%;
-    }
-    .caseContact hr{
-        width: 100%;
+}
 
-    }
+.myVideo2 {
+    width: 100%;
+}
+
+.barreverte {
+    background-color: #A6BA41;
+    width: 15%;
+    height: 57.3%;
+    position: absolute;
+    opacity: 0.5;
+}
+
+.caseContact {
+    background-color: white;
+    margin-top: 1%;
+    margin-left: 12%;
+    border-left: 10px #A6BA41 solid;
+    width: 35%;
+    height: 53%;
+    position: absolute;
+    z-index: 1;
+
+}
+
+.blocContact {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    margin-left: 10%;
+}
+
+.caseContact hr {
+    width: 100%;
+
+}

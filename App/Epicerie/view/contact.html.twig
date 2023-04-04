@@ -4,7 +4,55 @@
 {% block body %}
 
 
-<h1>Bienvenue sur la page contact</h1>
+
+<section class="contact">
+		<div class="caseContact">
+			<div class="blocContact">
+				<br>
+				<br>
+				<h2>CONTACT</h2>
+				<br>
+				<p>Si vous avez la moindre demande d'information
+				</p>
+				<p> ou si vous voulez faire partit des bénévoles vous pouvez nous contacter ici :</p>
+				<br>
+				<form
+					action="#" method="POST">
+					{# <label for="nom">Nom:</label> #}
+					<input type="text" id="nom" name="nom" style="border: none;width: 100%;" placeholder="Nom*" required>
+					<hr>
+					<br>
+					{# <label for="prenom">Prénom:</label> #}
+					<input type="text" id="prenom" name="prenom" style="border: none;width: 100%;" placeholder="Prénom*" required>
+					<hr>
+					<br>
+					{# <label for="adresse">Adresse Postale:</label> #}
+					<input type="text" id="adresse" name="adresse" style="border: none;width: 100%;" placeholder="Adresse Postale*" required>
+					<hr>
+					<br>
+					{# <label for="email">Adresse Email:</label> #}
+					<input type="email" id="email" name="email" style="border: none;width: 100%;" placeholder="Adresse Email*" required>
+					<hr>
+					<br>
+					{# <label for="telephone">Numéro de Téléphone:</label> #}
+					<input type="tel" id="telephone" name="telephone" style="border: none;width: 100%;" placeholder="Numéro de Téléphone*" required>
+					<hr>
+					<br>
+					{# <label for="message">Votre message:</label> #}
+					<textarea id="message" name="message" style="width: 100%; height: 40%; border: none;" placeholder="Votre message*" required></textarea>
+					<hr>
+					<br>
+					<input type="submit" value="Envoyer votre message ->" style="margin-left: 65%; border: none; background-color: white; cursor: pointer;">
+				</form>
+			</div>
+		</div>
+
+		<div class="maVideo2">
+			<span class="barreverte"></span>
+			<img class="imageContact" src="/assets/img/homme-affaires-utilisant-ordinateur-portable-telephone-portable.jpg" alt="">
+		</div>
+
+	</section>
 
 
 {% endblock %}
