@@ -81,58 +81,8 @@
     text-decoration: none;
     color: black;
   }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .footer1 {
-    height: auto;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
-    }
-    .logoFooter {
-    width: 20%;
-    margin: 0;
-    }
-    .logoFooter img {
-    width: 100%;
-    }
-    .logoDonFooter {
-    width: 100px;
-    height: 100px;
-    justify-content: flex-end;
-    margin: 0;
-    }
-    .logoDonFooter img {
-    width: 80%;
-    }
-    .fa-brands {
-    margin: 0 10px;
-    font-size: 25px;
-    }
-    .magasin {
-    width: 30%;
- 
-    margin: 0;
-    }
-    .magasin div {
-    width: 95%;
-    height: 100%;
-    
-    }
-
-
-    .mapFooter {
-      display: none;
-    width: 20%;
-
-    border: solid 1px gray;
-    margin: 0;
-    }
-    .planDuSite {
-    margin: 0;
-
-    }
-    }
-  @media (max-width: 767px) {
+  
+  @media (max-width: 768px) {
     
     .footer1 {
     height: auto;
@@ -142,21 +92,23 @@
     padding: 20px;
     }
     .logoFooter {
-    width: 50%;
+    width: 100%;
     margin: 0 0 20px;
     }
 
     .logoFooter img {
-    width: 100%;
+    width: 50%;
     }
     .logoDonFooter {
-    width: 50%;
+    width: 60%;
     justify-content: center;
+
     margin-top: 20px;
     }
     .logoDonFooter img {
     width: 80%;
     }
+
 
     .magasin {
     width: 100%;

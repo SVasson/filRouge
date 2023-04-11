@@ -10,6 +10,8 @@
 			<link rel="stylesheet" href="{{ assets('/assets/css/pageDeGarde.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/footer.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/aPropos.css') }}" />
+			<link rel="stylesheet" href="{{ assets('/assets/css/homeUser.css') }}" />
+			<link rel="stylesheet" href="{{ assets('/assets/css/listEvent.css') }}" />
 			<link rel="stylesheet" href="{{ assets('/assets/css/contact.css') }}" />
 		{% endblock %}
 
@@ -30,6 +32,12 @@
 						<a href="{{ path('epicerie.apropos') }}">
 							<li>A propos</li>
 						</a>
+
+
+						<hr>
+						<a href=" {{ path('user.listEventUser') }} ">
+							<li>liste Evenement</li>
+						</a>
 						<hr>
 
 						<a href=" {{ path('epicerie.contact') }} ">
@@ -39,28 +47,20 @@
 						<a href=" {{ path('user.login') }} ">
 							<li>Inscription/Connexion</li>
 						</a>
-						<hr>
-						<a href=" {{ path('user.listEventUser') }} ">
-							<li>liste Evenement</li>
-						</a>
-						
-						<hr>
-						<a href="/">
-							<li>Page De Garde</li>
-						</a>
 					</ul>
 
 				</div>
 				<h3>MENU</h3>
 			</nav>
-			<div class="logo">
-				<img src="/assets/img/Logo_Site (1).png">
-			</div>
+			<div class="logo" >
+			<a href="/" style="z-index: 1;">
+			<img src="/assets/img/Logo_Site (1).png">
+			</a></div>
 
 			<div class="logoDon">
 			<p class="monCompte"> <a href="{{ path('user.login') }}">Mon compte</a></p>
-			<i class="fa-brands fa-facebook"></i>
-			<i class="fa-brands fa-linkedin"></i>
+			<a href="https://www.facebook.com/epiceriesolidairemozart/?ref=page_internal"><i class="fa-brands fa-facebook"></i></a>
+			<a href="https://fr.linkedin.com/in/isabelle-mahler-26453910b"><i class="fa-brands fa-linkedin"></i></a>
 				<img src="/assets/img/pngegg (24).png">
 			</div>
 		</header>
@@ -78,8 +78,9 @@
 
 		</main>
 		<footer class="footer1">
-		<div class="logoFooter">
+		<div class="logoFooter"><a href="/" style="z-index: 0;">
 				<img src="/assets/img/Logo_Site (1).png">
+				</a>
 			</div>
 			<section class="magasin">
 			<div>
@@ -113,8 +114,10 @@
 			</div>
 			</section>
 			<div class="logoDonFooter">
-	
+				
 				<img src="/assets/img/pngegg (24).png">
+				<a class="facebookFooter"href="https://www.facebook.com/epiceriesolidairemozart/?ref=page_internal"><i class="fa-brands fa-facebook"></i></a>
+			<a class="linkedinFooter" href="https://fr.linkedin.com/in/isabelle-mahler-26453910b"><i class="fa-brands fa-linkedin"></i></a>
 			</div>
 	
 		</footer>

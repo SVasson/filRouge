@@ -142,6 +142,7 @@ class UserAction
             'events' => $events,
             'user' => $this->session->get('user')
         ]);
+
     }
     public function home(ServerRequest $request)
     {

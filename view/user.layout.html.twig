@@ -11,6 +11,7 @@
 			<link rel="stylesheet" href="{{ assets('/assets/css/footer.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/aPropos.css') }}" />
 			<link rel="stylesheet" href="{{ assets('/assets/css/homeUser.css') }}" />
+			<link rel="stylesheet" href="{{ assets('/assets/css/listEvent.css') }}" />
 		{% endblock %}
 
 		<title>{{ siteName }}</title>
@@ -54,7 +55,7 @@
 				<h3>MENU</h3>
 			</nav>
 			<div class="logo">
-				<img src="/assets/img/Logo_Site (1).png">
+							<a href=" {{ path('user.home') }} " style="z-index: 1;"><img src="/assets/img/Logo_Site (1).png"></a>
 			</div>
 
 			<div class="logoDon">
@@ -79,7 +80,9 @@
 		</main>
 		<footer class="footer1">
 		<div class="logoFooter">
+		<a href=" {{ path('user.home') }} " style="z-index: 0;">
 				<img src="/assets/img/Logo_Site (1).png">
+				</a>
 			</div>
 			<section class="magasin">
 			<div>
@@ -113,8 +116,10 @@
 			</div>
 			</section>
 			<div class="logoDonFooter">
-
+				
 				<img src="/assets/img/pngegg (24).png">
+				<a class="facebookFooter"href="https://www.facebook.com/epiceriesolidairemozart/?ref=page_internal"><i class="fa-brands fa-facebook"></i></a>
+			<a class="linkedinFooter" href="https://fr.linkedin.com/in/isabelle-mahler-26453910b"><i class="fa-brands fa-linkedin"></i></a>
 			</div>
 	
 		</footer>

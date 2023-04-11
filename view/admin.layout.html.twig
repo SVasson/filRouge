@@ -8,11 +8,10 @@
 
 			<link rel="stylesheet" href="{{ assets('/assets/css/nav.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/header.css') }}"/>
-			<link rel="stylesheet" href="{{ assets('/assets/css/pageDeGarde.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/footer.css') }}"/>
-			<link rel="stylesheet" href="{{ assets('/assets/css/aPropos.css') }}" />
 			<link rel="stylesheet" href="{{ assets('/assets/css/logAdmin.css') }}" />
 			
+			<link rel="stylesheet" href="{{ assets('/assets/css/listAdmin.css') }}" />
 		{% endblock %}
 		<title>{{ siteName }}</title>
 
@@ -29,15 +28,7 @@
 					<span></span>
 
 					<ul id="menu">
-						 <a href="{{ path('epicerie.apropos') }}"> 
-						 <li>A propos</li>
-						</a>
-					
-						<hr>
-						<a href=" {{ path('epicerie.contact') }} ">
-							<li>Contact</li>
-						</a>
-						<hr>
+
 						<a href=" {{ path('admin.login') }} ">
 							<li>Inscription/Connexion</li>
 						</a>
@@ -49,18 +40,14 @@
 						<a href=" {{ path('admin.listEvent') }} ">
 							<li>liste Evenement</li>
 						</a>
-						<hr>
-
-						<a href="/">
-							<li>Page De Garde</li>
-						</a>
 					</ul>
 
 				</div>
 				<h3>MENU</h3>
 			</nav>
 			<div class="logo">
-				<img src="/assets/img/Logo_Site (1).png">
+			<a href=" {{ path('admin.home') }} " style="z-index: 1;">
+		<img src="/assets/img/Logo_Site (1).png"></a>
 			</div>
 			<div class="logoDon">
 				<img src="/assets/img/pngegg (24).png">
@@ -81,7 +68,9 @@
 		</main>
 		<footer class="footer1">
 		<div class="logoFooter">
+		<a href="{{ path('admin.home') }}" style="z-index: 1;">
 				<img src="/assets/img/Logo_Site (1).png">
+				</a>
 			</div>
 			<section class="magasin">
 			<div>
@@ -101,23 +90,20 @@
 			<div>
 			<h3>Plan du site</h3><br>
 
-						<a href="/">Index</a><br>
-						
-						<a href="{{ path('epicerie.apropos') }}">A propos </a><br>
-
 						<a href=" {{ path('user.listEventUser') }} ">Liste des évenement</a><br>
 
 						<a href=" {{ path('user.login') }} ">Connexion/Inscription</a><br>
+						<a href=" {{ path('admin.add-event') }} ">creer Evenement</a><br>
 
-						<a href=" {{ path('epicerie.contact') }} ">Contact</a><br>
 						
 
 			</div>
 			</section>
 			<div class="logoDonFooter">
-		
-
+				
 				<img src="/assets/img/pngegg (24).png">
+				<a class="facebookFooter"href="https://www.facebook.com/epiceriesolidairemozart/?ref=page_internal"><i class="fa-brands fa-facebook"></i></a>
+			<a class="linkedinFooter" href="https://fr.linkedin.com/in/isabelle-mahler-26453910b"><i class="fa-brands fa-linkedin"></i></a>
 			</div>
 	
 		</footer>

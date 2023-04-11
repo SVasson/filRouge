@@ -1,0 +1,52 @@
+.listEvent{
+    margin-top: 3%;
+    text-align: center;
+    background-color: #A6BA41;
+    
+}
+
+.nomEvent{
+
+    text-align: inherit;
+    margin-top: 60%;
+}
+
+.sectionEvent{
+    border: solid 1px;
+    width: 20%;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.cuisineImg{
+    width: 15%;
+    position: absolute;
+    margin-left: -760px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.coiffeurImg{
+    width: 15%;
+    position: absolute;
+    margin-left: 760px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.description{
+    width: 95%;
+
+}
+
+.reserver{
+    margin-bottom: 1%;
+    width: 74%;
+
+}

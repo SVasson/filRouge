@@ -1,19 +1,28 @@
 {% extends 'user.layout.html.twig' %}
 
 
-{% block title %}Liste des événements{% endblock %}
-
 {% block body %}
-    <h1>Liste des événements</h1>
-    <ul>
-        {% for event in events %}
-            <li>
-                <h2>{{ event.name }}</h2>
-                <p>{{ event.description }}</p>
+	<h1 class="listEvent">Liste des événements</h1>
+
+	<h3 class="dispoEvent">Voici la liste des évenements qui sont disponibles:</h3>
+    <article class="zoneEvent">
+
+			 {% for event in events %}
+                <section class="sectionEvent">
+                
+                <h2 class="nomEvent">{{ event.name }}</h2>
+                <hr>
+                <p class="description">{{ event.description }}</p>
+                <hr>
                 <p>Début : {{ event.startDate|date('d/m/Y H:i') }}</p>
                 <p>Fin : {{ event.endDate|date('d/m/Y H:i') }}</p>
-                
-            </li>
+                <hr>
+                <p class="reserver">Afin de réserver vous pouvez appelez au 06 07 25 13 12</p>
+                </section>
         {% endfor %}
-    </ul>
+    <img class="cuisineImg" src="/assets/img/cours-de-cuisine.jpg" alt="">
+   <img class="coiffeurImg" src="/assets/img/B9719358199Z.1_20190424190713_000+GT4DF89G4.2-0.jpg" alt="">
+</article>
+
+
 {% endblock %}
