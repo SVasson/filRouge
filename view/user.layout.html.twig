@@ -9,9 +9,9 @@
 			<link rel="stylesheet" href="{{ assets('/assets/css/header.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/pageDeGarde.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/footer.css') }}"/>
-			<link rel="stylesheet" href="{{ assets('/assets/css/aPropos.css') }}" />
-			<link rel="stylesheet" href="{{ assets('/assets/css/homeUser.css') }}" />
-			<link rel="stylesheet" href="{{ assets('/assets/css/listEvent.css') }}" />
+			<link rel="stylesheet" href="{{ assets('/assets/css/aPropos.css') }}"/>
+			<link rel="stylesheet" href="{{ assets('/assets/css/homeUser.css') }}"/>
+			<link rel="stylesheet" href="{{ assets('/assets/css/listEvent.css') }}"/>
 		{% endblock %}
 
 		<title>{{ siteName }}</title>
@@ -33,35 +33,40 @@
 						</a>
 						<hr>
 
-						<a href=" {{ path('epicerie.contact') }} ">
-							<li>Contact</li>
+
+						<a href=" {{ path('user.listEventUser') }} ">
+							<li>liste Evenement</li>
 						</a>
 						<hr>
 						<a href=" {{ path('user.login') }} ">
 							<li>Inscription/Connexion</li>
 						</a>
 						<hr>
-						<a href=" {{ path('user.listEventUser') }} ">
-							<li>liste Evenement</li>
-						</a>
-						
-						<hr>
-						<a href="/">
-							<li>Page De Garde</li>
+
+						<a href=" {{ path('epicerie.contact') }} ">
+							<li>Contact</li>
 						</a>
 					</ul>
 
 				</div>
-				<h3>MENU</h3>
+				<h3 class="menu">MENU</h3>
 			</nav>
 			<div class="logo">
-							<a href=" {{ path('user.home') }} " style="z-index: 1;"><img src="/assets/img/Logo_Site (1).png"></a>
+				<a href="/" style="z-index: 1;">
+					<img src="/assets/img/Logo_Site (1).png">
+				</a>
 			</div>
 
 			<div class="logoDon">
-			<p class="monCompte"> <a href="{{ path('user.home') }}">Mon compte</a></p>
-			<i class="fa-brands fa-facebook"></i>
-			<i class="fa-brands fa-linkedin"></i>
+				<p class="monCompte">
+					<a href="{{ path('user.home') }}">Mon compte</a>
+				</p>
+				<a href="https://www.facebook.com/epiceriesolidairemozart/?ref=page_internal">
+					<i class="fa-brands fa-facebook"></i>
+				</a>
+				<a href="https://fr.linkedin.com/in/isabelle-mahler-26453910b">
+					<i class="fa-brands fa-linkedin"></i>
+				</a>
 				<img src="/assets/img/pngegg (24).png">
 			</div>
 		</header>
@@ -79,53 +84,59 @@
 
 		</main>
 		<footer class="footer1">
-		<div class="logoFooter">
-		<a href=" {{ path('user.home') }} " style="z-index: 0;">
-				<img src="/assets/img/Logo_Site (1).png">
+			<div class="logoFooter">
+				<a href=" {{ path('user.home') }} " style="z-index: 0;">
+					<img src="/assets/img/Logo_Site (1).png">
 				</a>
 			</div>
 			<section class="magasin">
-			<div>
-			<h3>Magasin</h3><br>
-			<p>14 bis, rue Mozart, </p>
-			<p>57000 Metz</p>
-			<p>Tél : 06 07 25 13 12</p>
-			<p>epicerieMozart@gmail.com</p>
-			</div>
+				<div>
+					<h3>Magasin</h3><br>
+					<p>14 bis, rue Mozart,
+					</p>
+					<p>57000 Metz</p>
+					<p>Tél : 06 07 25 13 12</p>
+					<p>epicerieMozart@gmail.com</p>
+				</div>
 			</section>
 			<section class="mapFooter">
-			<div>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2611.7840728464607!2d6.165806015847295!3d49.109742390929405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794dc05ffd2a307%3A0x8cc689c07e40239c!2s14%20Rue%20Mozart%2C%2057000%20Metz!5e0!3m2!1sfr!2sfr!4v1680088492819!5m2!1sfr!2sfr" width="200" height="192" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-			</div>
+				<div>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2611.7840728464607!2d6.165806015847295!3d49.109742390929405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794dc05ffd2a307%3A0x8cc689c07e40239c!2s14%20Rue%20Mozart%2C%2057000%20Metz!5e0!3m2!1sfr!2sfr!4v1680088492819!5m2!1sfr!2sfr" width="200" height="192" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>
 			</section>
-			<section class="planDuSite"> 
-			<div>
-			<h3>Plan du site</h3><br>
+			<section class="planDuSite">
+				<div>
+					<h3>Plan du site</h3><br>
 
-						<a href="/">Index</a><br>
-						
-						<a href="{{ path('epicerie.apropos') }}">A propos </a><br>
+					<a href="/">Index</a><br>
 
-						<a href=" {{ path('user.listEventUser') }} ">Liste des évenement</a><br>
+					<a href="{{ path('epicerie.apropos') }}">A propos
+					</a><br>
 
-						<a href=" {{ path('user.login') }} ">Connexion/Inscription</a><br>
+					<a href=" {{ path('user.listEventUser') }} ">Liste des évenement</a><br>
 
-						<a href=" {{ path('epicerie.contact') }} ">Contact</a><br>
-						
+					<a href=" {{ path('user.login') }} ">Connexion/Inscription</a><br>
 
-			</div>
+					<a href=" {{ path('epicerie.contact') }} ">Contact</a><br>
+
+
+				</div>
 			</section>
 			<div class="logoDonFooter">
-				
+
 				<img src="/assets/img/pngegg (24).png">
-				<a class="facebookFooter"href="https://www.facebook.com/epiceriesolidairemozart/?ref=page_internal"><i class="fa-brands fa-facebook"></i></a>
-			<a class="linkedinFooter" href="https://fr.linkedin.com/in/isabelle-mahler-26453910b"><i class="fa-brands fa-linkedin"></i></a>
+				<a class="facebookFooter" href="https://www.facebook.com/epiceriesolidairemozart/?ref=page_internal">
+					<i class="fa-brands fa-facebook"></i>
+				</a>
+				<a class="linkedinFooter" href="https://fr.linkedin.com/in/isabelle-mahler-26453910b">
+					<i class="fa-brands fa-linkedin"></i>
+				</a>
 			</div>
-	
+
 		</footer>
 		<footer class="MentionLegales">
 			<h4>Mentions Legales</h4>
-			</footer>
+		</footer>
 		{% block scripts %}
 			<script src="https://kit.fontawesome.com/e73be59cbc.js" crossorigin="anonymous"></script>
 		{% endblock %}

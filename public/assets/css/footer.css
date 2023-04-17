@@ -92,12 +92,14 @@
     padding: 20px;
     }
     .logoFooter {
-    width: 100%;
+    width: 60%;
     margin: 0 0 20px;
+      margin-left: 12%;
     }
 
     .logoFooter img {
-    width: 50%;
+    width: 80%;
+    align-self: center;
     }
     .logoDonFooter {
     width: 60%;
@@ -113,6 +115,8 @@
     .magasin {
     width: 100%;
     margin: 0 0 20px;
+    margin-left: 10%;
+    text-align: center;
     }
     .magasin div {
     width: 90%;

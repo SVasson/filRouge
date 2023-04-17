@@ -126,3 +126,106 @@ hr{
  
 }
 
+@media (max-width: 768px) {
+    .zoneNom{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 3%;
+        background-color: #A6BA41;
+        font-size: 11px;
+        height: 55px;
+
+    }
+    .nom::first-letter{
+        text-transform: capitalize;
+        margin-left: 4px;
+    }
+    .nom{
+        margin-top: 7%;
+        position: absolute;
+    }
+    .zonePerso{
+        margin-left: 3%;
+        width: 400px;
+    }
+    .cuisine{
+        border: solid 1px;
+        width: 80%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-evenly;
+        border-radius: 15px;
+        background-color: white;
+        margin-top: 5%;
+    }
+    
+    .cuisine img{
+        width: 90%;
+    }
+    
+    .zoneEvent{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 2.5%;
+    }
+    .coiffeur{
+        border: solid 1px;
+        width: 80%;
+        margin-top: 5%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-evenly;
+        border-radius: 15px;
+        background-color: white;
+    }
+    .sectionMedecin{
+        width: 100%;
+        margin-top: 6%;
+        height: 340px;
+        overflow: hidden;
+    }
+    .sectionMedecin img{
+        width: 500px;
+        height: 100%;
+    }
+    
+    .annonceMedecin{
+        position: absolute;
+        width: 80%;
+        height: 10%;
+        margin-top: 5%;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #a6ba41c1;
+        margin-left: 10%;
+    }
+    
+    .texteMedecin{
+    
+        position: absolute;
+        margin-top: -40%;
+        width: 70%;
+        height: 20%;
+        margin-left: 14.5%;
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        background-color: #a6ba41a1;
+     
+    }
+    .texteEventUser{
+        margin-left: 1%;
+    }
+}

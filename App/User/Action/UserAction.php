@@ -101,7 +101,7 @@ class UserAction
         $auth = $this->container->get(UserAuth::class);
         $res = $auth->login($data['mail'], $data['mdp']);
         if ($res) {
-            $this->toaster->makeToast('Connexion reussie', Toaster::SUCCESS);
+            $this->toaster->makeToast('', Toaster::SUCCESS);
             return $this->redirect('user.home');
         }
         $this->toaster->makeToast("Connexion échoué, merci de vérifier email et mot de passe", Toaster::ERROR);

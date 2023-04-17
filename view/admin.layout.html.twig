@@ -10,7 +10,6 @@
 			<link rel="stylesheet" href="{{ assets('/assets/css/header.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/footer.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/logAdmin.css') }}" />
-			
 			<link rel="stylesheet" href="{{ assets('/assets/css/listAdmin.css') }}" />
 		{% endblock %}
 		<title>{{ siteName }}</title>
@@ -28,7 +27,10 @@
 					<span></span>
 
 					<ul id="menu">
-
+						<a href=" {{ path('admin.home') }} ">
+						 <li>Page Admin</li> 
+						 </a>
+						<hr>
 						<a href=" {{ path('admin.login') }} ">
 							<li>Inscription/Connexion</li>
 						</a>
@@ -40,10 +42,11 @@
 						<a href=" {{ path('admin.listEvent') }} ">
 							<li>liste Evenement</li>
 						</a>
+
 					</ul>
 
 				</div>
-				<h3>MENU</h3>
+				<h3 class="menu">MENU</h3>
 			</nav>
 			<div class="logo">
 			<a href=" {{ path('admin.home') }} " style="z-index: 1;">
@@ -89,11 +92,11 @@
 			<section class="planDuSite"> 
 			<div>
 			<h3>Plan du site</h3><br>
-
-						<a href=" {{ path('user.listEventUser') }} ">Liste des évenement</a><br>
-
-						<a href=" {{ path('user.login') }} ">Connexion/Inscription</a><br>
+						<a href=" {{ path('admin.home') }} ">Page Admin</a><br>
 						<a href=" {{ path('admin.add-event') }} ">creer Evenement</a><br>
+						<a href=" {{ path('user.listEventUser') }} ">Liste des évenement</a><br>
+						<a href=" {{ path('admin.login') }} ">Connexion/Inscription</a><br>
+						
 
 						
 

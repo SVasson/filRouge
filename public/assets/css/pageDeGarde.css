@@ -101,6 +101,7 @@ button {
 
 .myVideo2 {
     width: 100%;
+
 }
 
 .barreverte {
@@ -135,8 +136,14 @@ button {
     width: 100%;
 
 }
+.contactPDG{
+  margin-left: 65%; 
+  border: none; 
+  background-color: white; 
+  cursor: pointer;
+}
 
-    @media screen and (max-width: 768px) {
+    @media (max-width: 768px) {
  
         .maVideo {
 
@@ -170,8 +177,8 @@ button {
         }
       
         .map {
-          margin-left: 0;
-          width: 100%;
+          margin-left: 18px;
+          width: 90%;
           height: 200px;
           position: absolute;
           margin-top: -480px;
@@ -182,9 +189,9 @@ button {
         }
 
         .where {
-          width: 100%;
+          width: 90%;
           margin-top: 40px;
-          margin-left: 0;
+          margin-left: 18px;
           height: 550px;
           z-index: -1;
           flex-direction: column;
@@ -216,12 +223,12 @@ button {
       
         .caseContact {
           margin-top: 5%;
-          width: 100%;
+          width: 90%;
           height: 500px;
           border-left: none;
           border-top: 10px #A6BA41 solid;
           position: relative;
-          margin-left: 0px;
+          margin-left: 18px;
 
         }
       
@@ -236,5 +243,8 @@ button {
         .caseContact hr {
           margin-top: 2%;
         }
+      .contactPDG{
+        margin-left: 50%;
+      }
       }
       

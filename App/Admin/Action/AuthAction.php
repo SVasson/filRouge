@@ -44,7 +44,7 @@ class AuthAction
                     ->withHeader('location', '/admin/login');
             }
             if ($auth->login($data['mail'], $data['mdp'])) {
-                $this->toaster->makeToast('Connexion reussie', Toaster::SUCCESS);
+                $this->toaster->makeToast('', Toaster::SUCCESS);
                 return (new Response())
                     ->withHeader('Location', '/admin/home');
             }

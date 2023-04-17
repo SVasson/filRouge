@@ -2,4 +2,23 @@
 
 {% block body %}
     <h1>Bienvenue sur l'administration de l'épicerie Mozart</h1>
+  <h1>Liste des événements</h1>
+
+    <article>
+        {% for event in events %}
+                <section class="sectionEvent">
+                
+                <h2 class="nomEvent">{{ event.name }}</h2>
+                <hr>
+                <p class="description">{{ event.description }}</p>
+                <hr>
+                <p>Début : {{ event.startDate|date('d/m/Y H:i') }}</p>
+                <p>Fin : {{ event.endDate|date('d/m/Y H:i') }}</p>
+                <hr>
+                    <a href="{{ path('admin.edit-event', {id: event.id}) }}"><input  class="boutonModif"  type="button" value="Modifier"></a>
+                <a href="{{ path('admin.delete', {id: event.id}) }}"><input type="button" value="Supprimer"  class="boutonDelete" ></a>
+                </section>
+        {% endfor %}
+    </article>
+
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block body %}
 
 	<div class="zoneNom">
-		<h1>Bienvenue sur votre page personnelle
+		<h1 class="zonePerso">Bienvenue sur votre page personnelle
 		</h1>
 		<h1 class="nom">
 			{{ user.nom }}</h1>
@@ -24,7 +24,7 @@
 			</div>
 			<div>
 			
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quo perspiciatis inventore dicta ducimus? Maiores, id dolorum delectus tenetur repellendus itaque, quidem necessitatibus aut hic, consequatur minus? Repellendus, doloremque delectus.</p>
+				<p class="texteEventUser">Lors de cet évenement nous apprenons a réaliser des recettes de cuisine et on vous apprend à transformer les ingrédients pour en faire de bons petits plats mais pour en savoir plus cliquez sur le bouton ci-dessous</p>
 			</div><hr class="traitCards">
 			<div class="inputCuisine"><a href=" {{ path('user.listEventUser') }} "><input type="button" value="En savoir plus" class="cuisineBouton"></a></div>
 
@@ -36,7 +36,7 @@
 				<h2>Coiffeur</h2>
 			</div>
 			<div>
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quo perspiciatis inventore dicta ducimus? Maiores, id dolorum delectus tenetur repellendus itaque, quidem necessitatibus aut hic, consequatur minus? Repellendus, doloremque delectus.</p>
+				<p class="texteEventUser">Lors de cet évenement vous pouvez apprendre le métier de coiffeur/barbier ou tout simplement vous faire refaire une coupe, pour en savoir plus cliquez sur le bouton ci-dessous</p>
 			</div><hr class="traitCards">
 			<div class="inputCoiffeur"><a href=" {{ path('user.listEventUser') }} "><input type="button" value="En savoir plus" class="coiffeurBouton"></a></div></section>
 			

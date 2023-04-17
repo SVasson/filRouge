@@ -6,7 +6,6 @@
 }
 
 .nomEvent{
-
     text-align: inherit;
     margin-top: 60%;
 }
@@ -49,4 +48,56 @@
     margin-bottom: 1%;
     width: 74%;
 
+}
+@media (max-width: 768px) {
+    .listEvent{
+        margin-top: 3%;
+        text-align: center;
+        background-color: #A6BA41;
+        height: 28px;
+        font-size: 24px;
+        
+    }
+.dispoEvent{
+    width: 85%;
+    margin-top: 5%;
+    font-size: 15px;
+}
+    
+    .sectionEvent{
+        border: solid 1px;
+        width: 80%;
+        height: 550px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-evenly;
+        border-radius: 15px;
+        background-color: white;
+        margin-top: 5%;
+    }
+    .zoneEvent{
+        display: flex; 
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cuisineImg{
+        width: 70%;
+        position: absolute;
+        margin-left: 0px;
+        margin-top: -920px;
+        border-radius: 10px;
+    }
+    
+    .coiffeurImg{
+        width: 70%;
+        position: absolute;
+        margin-left: 0px;
+        margin-top: 220px;
+        border-radius: 10px;
+    }
+    
 }
