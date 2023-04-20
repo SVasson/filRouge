@@ -107,14 +107,14 @@ button {
 .barreverte {
     background-color: #A6BA41;
     width: 15%;
-    height: 59.2%;
+    height: 57.3%;
     position: absolute;
     opacity: 0.5;
 }
 
 .caseContact {
     background-color: white;
-    margin-top: 1.5%;
+    margin-top: 1%;
     margin-left: 12%;
     border-left: 10px #A6BA41 solid;
     width: 35%;

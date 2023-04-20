@@ -8,7 +8,7 @@
 .nomEvent{
 
     text-align: inherit;
-    margin-top: 60%;
+
 }
 
 .sectionEvent{
@@ -67,4 +67,10 @@
     width: 200px;
     height: 30px;
     border-radius: 8px;
+}
+.traitListeEvent{
+    width: 70%;
+    background-color: #DBA10F;
+    height: 1px;
+    border: none;
 }

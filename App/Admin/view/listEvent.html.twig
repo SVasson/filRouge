@@ -1,27 +1,31 @@
 {% extends 'admin.layout.html.twig' %}
 
-{% block title %}Liste des événements{% endblock %}
+{% block title %}Liste des événements
+{% endblock %}
 
 {% block body %}
-    <h1>Liste des événements</h1>
-     <article class="zoneEvent">
+	<h1>Liste des événements</h1>
+	<article class="zoneEvent">
 
-			 {% for event in events %}
-                <section class="sectionEvent">
-                
-                <h2 class="nomEvent">{{ event.name }}</h2>
-                <hr>
-                <p class="description">{{ event.description }}</p>
-                <hr>
-                <p>Début : {{ event.startDate|date('d/m/Y H:i') }}</p>
-                <p>Fin : {{ event.endDate|date('d/m/Y H:i') }}</p>
-                <hr>
-                    <a href="{{ path('admin.edit-event', {id: event.id}) }}"><input  class="boutonModif"  type="button" value="Modifier"></a>
-                <a href="{{ path('admin.delete', {id: event.id}) }}"><input type="button" value="Supprimer"  class="boutonDelete" ></a>
-                </section>
-        {% endfor %}
-    <img class="cuisineImg" src="/assets/img/cours-de-cuisine.jpg" alt="">
-   <img class="coiffeurImg" src="/assets/img/B9719358199Z.1_20190424190713_000+GT4DF89G4.2-0.jpg" alt="">
-</article>
+		{% for event in events %}
+			<section class="sectionEvent">
+
+				<img style="width: 250px;" src="{{ assets('/assets/img/' ~ event.imgPath) }}">
+				<hr class="traitListeEvent">
+				<h2 class="nomEvent">{{ event.name }}</h2>
+				<hr class="traitListeEvent">
+				<p class="description">{{ event.description }}</p>
+				<hr class="traitListeEvent">
+				<p>Début :
+					{{ event.startDate|date('d/m/Y H:i') }}</p>
+				<p>Fin :
+					{{ event.endDate|date('d/m/Y H:i') }}</p>
+				<hr class="traitListeEvent">
+				<a href="{{ path('admin.edit-event', {id: event.id}) }}"><input class="boutonModif" type="button" value="Modifier"></a>
+				<a href="{{ path('admin.delete', {id: event.id}) }}"><input type="button" value="Supprimer" class="boutonDelete"></a>
+			</section>
+		{% endfor %}
+		
+	</article>
 
 {% endblock %}

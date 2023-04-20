@@ -37,6 +37,13 @@ class Event
      */
     private \DateTimeInterface $endDate;
 
+         /**
+     * @ORM\Column(type="string", name="img_path")
+     * @var string
+     */
+
+     private string $imgPath;
+     
     public function getId(): ?int
     {
         return $this->id;
@@ -83,4 +90,28 @@ class Event
     }
 
 
+
+    /**
+     * Set imgPath.
+     *
+     * @param string $imgPath
+     *
+     * @return Event
+     */
+    public function setImgPath($imgPath)
+    {
+        $this->imgPath = $imgPath;
+
+        return $this;
+    }
+
+    /**
+     * Get imgPath.
+     *
+     * @return string
+     */
+    public function getImgPath()
+    {
+        return $this->imgPath;
+    }
 }
