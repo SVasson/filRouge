@@ -146,8 +146,11 @@ class UserAction
     }
     public function home(ServerRequest $request)
     {
+                // Récupération des événements depuis la base de données
+                $events = $this->entityManager->getRepository(Event::class)->findAll();
         $user = $this->session->get('auth');
         return $this->renderer->render('@user/home', [
+            'events' => $events,
             'user' => $user
         ]);
     }

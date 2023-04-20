@@ -7,7 +7,6 @@
 
 .nomEvent{
     text-align: inherit;
-    margin-top: 60%;
 }
 
 .sectionEvent{
@@ -48,6 +47,12 @@
     margin-bottom: 1%;
     width: 74%;
 
+}
+.traitListeEvent{
+    width: 70%;
+    background-color: #DBA10F;
+    height: 1px;
+    border: none;
 }
 @media (max-width: 768px) {
     .listEvent{
