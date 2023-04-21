@@ -15,7 +15,7 @@
 #menuToggle a {
     text-decoration: none;
     color: black;
-
+    font-family: 'Roboto', sans-serif;
     transition: color 0.3s ease;
 }
 
@@ -35,6 +35,7 @@
     opacity: 0;
     z-index: 2;
     -webkit-touch-callout: none;
+    
 }
 
 #menuToggle span {
@@ -46,6 +47,7 @@
     background: black;
     border-radius: 3px;
     z-index: 1;
+    
     transform-origin: 4px 0px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
         background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
@@ -95,6 +97,7 @@
 #menu li {
     padding: 10px 0;
     font-size: 22px;
+    
 }
 
 #menuToggle input:checked~ul {
@@ -105,6 +108,7 @@ nav h3{
     margin-left: 95px;
     font-size: 26px;
     position: absolute;
-    margin-top: 58px;
+    margin-top: 55px;
+    font-family: 'roboto', sans-serif;
 }
 

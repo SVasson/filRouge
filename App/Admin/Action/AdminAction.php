@@ -2,6 +2,7 @@
 
 namespace App\Admin\Action;
 
+use Model\Entity\User;
 use Model\Entity\Event;
 use Core\Toaster\Toaster;
 use Doctrine\ORM\EntityManager;
@@ -52,7 +53,11 @@ class AdminAction
 
     public function home(ServerRequest $request)
     {
-        return $this->renderer->render('@admin/home');
+        $users = $this->entityManager->getRepository(User::class)->findAll(); 
+        // Recupere tout les utilisateur de la base de donnée
+    
+        return $this->renderer->render('@admin/home', ['users' => $users]); 
+        //les passent en vue 
     }
     /////////////////////////////////////////////////////////////////////////////////////////////
 

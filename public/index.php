@@ -11,13 +11,14 @@ use App\Epicerie\EpicerieModule;
 use function Http\Response\send;
 use GuzzleHttp\Psr7\ServerRequest;
 use App\PageDeGarde\PageDeGardeModule;
+use Model\Repository\EventDateRepository;
+use Core\Framework\Middleware\CSRFMiddleware;
 use Core\Framework\Middleware\RouterMiddleware;
 use Core\Framework\Middleware\NotFoundMiddleware;
 use Core\Framework\Middleware\UserAuthMiddleware;
 use Core\Framework\Middleware\AdminAuthMiddleware;
 use Core\Framework\Middleware\TrailingSlashMiddleware;
 use Core\Framework\Middleware\RouterDispatcherMiddleware;
-use Model\Repository\EventDateRepository;
 
 //Inclusion de l'autoloader de composer
 require dirname(__DIR__) . '/vendor/autoload.php';
@@ -57,6 +58,9 @@ $app = new App($container, $modules);
 //Puis on ajoute les middleware suivant en leur passant le container de dépendances si besoin
 $app->linkFirst(new TrailingSlashMiddleware())
     ->linkWith(new RouterMiddleware($container))
+    ->linkWith(new CSRFMiddleware($container, [
+        '/admin/add-event'
+    ]))
     ->linkWith(new AdminAuthMiddleware($container))
     ->linkWith(new UserAuthMiddleware($container))
     ->linkWith(new RouterDispatcherMiddleware())

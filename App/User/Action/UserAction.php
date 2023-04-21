@@ -133,7 +133,7 @@ class UserAction
     }
     public function listEventUser(ServerRequestInterface $request): ResponseInterface
     {
-        
+
         // Récupération des événements depuis la base de données
         $events = $this->entityManager->getRepository(Event::class)->findAll();
 
@@ -142,12 +142,11 @@ class UserAction
             'events' => $events,
             'user' => $this->session->get('user')
         ]);
-
     }
     public function home(ServerRequest $request)
     {
-                // Récupération des événements depuis la base de données
-                $events = $this->entityManager->getRepository(Event::class)->findAll();
+        // Récupération des événements depuis la base de données
+        $events = $this->entityManager->getRepository(Event::class)->findAll();
         $user = $this->session->get('auth');
         return $this->renderer->render('@user/home', [
             'events' => $events,

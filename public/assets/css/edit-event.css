@@ -1,4 +1,4 @@
-.formAddEvent{
+.formEditEvent{
     border: solid 1px;
     border-radius: 10px;
     background-color: #A6BA41;
@@ -8,57 +8,66 @@
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
-    font-family: 'roboto', sans-serif;
 }
-.divNom{
+.divNomEdit{
     display: flex;
     flex-direction: column;
     text-align: center;
     width: 80%;
 }
-.divDesc{
+.divDescEdit{
     display: flex;
     flex-direction: column;
     text-align: center;
     width: 80%;
 }
-.divDateDebut{
+.formDateDebutEvent{
     display: flex;
     flex-direction: column;
     text-align: center;
     width: 50%;
 }
-.divDateFin{
+.formDateFinEvent{
     display: flex;
     flex-direction: column;
     text-align: center;
     width: 50%;
 }
-.form-group{
+.form-control2{
+    width: 100%;
+}
+.form-control3{
+    width: 160%;
+}
+.form-control4{
+    width: 160%;
+    height: 110px;
+}
+.form-group2{
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     width: 50%;
 }
-.divBouton{
+.divBoutonEvent{
     width: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
 }
-.boutonEvent{
+.boutonEditEvent{
     width: 50%;
     height: 40px;
     border-radius: 10px;
     background-color: #DBA10F;
     margin-bottom: 20px;
 }
-.traitFormulaire{
+.traitFormulaireEdit{
     width: 80%;
 }
-.mainAddEvent {
+.mainEditEvent {
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -52,6 +52,16 @@ class EpicerieAction
     {
         return $this->render('@epicerie/contact');
     }
+     /**
+     * Affiche la page Mentions Légales 
+     * @param ServerRequestInterface $request
+     * @return ResponseInterface
+     */
+    public function mentionsLegales(ServerRequestInterface $request): ResponseInterface
+    {
+        return $this->render('@epicerie/mentionsLegales');
+    }
+
 
     /**
      * Affiche la page Inscription

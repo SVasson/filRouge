@@ -1,20 +1,30 @@
 {% extends "admin.layout.html.twig" %}
+{% block stylesheet %}
 
+	<link rel="stylesheet" href="{{ assets('/assets/css/nav.css') }}"/>
+	<link rel="stylesheet" href="{{ assets('/assets/css/header.css') }}"/>
+	<link rel="stylesheet" href="{{ assets('/assets/css/footer.css') }}"/>
+	<link rel="stylesheet" href="{{ assets('/assets/css/logAdmin.css') }}"/>
+	<link rel="stylesheet" href="{{ assets('/assets/css/listAdmin.css') }}"/>
+	<link rel="stylesheet" href="{{ assets('/assets/css/add-event.css') }}"/>
+{% endblock %}
 {% block body %}
-<div class="monImg">
+<main class="mainLoginAdmin">
+	<div class="monImg">
 		<img src="/assets/img/8307423_clavier-leparisien.jpg">
 	</div>
 
-<div class="userFormViewPort">
+	<div class="userFormViewPort">
 
-<div
-			class="formContainer d-flex">
-            <h1 class="loginAdmin">Connexion en tant que Admin</h1>
-<form method="POST" class="p-4 formConnexion" action="">
+		<div class="formContainer d-flex">
+			<h1 class="loginAdmin">Connexion en tant que Admin</h1>
+			<form method="POST" class="p-4 formConnexion" action="">
 
 				<div class="zoneDeco">
 					<label for="deconnexion" class="formUser">Si vous êtes connecter, vous pouvez vous deconnecter ici :</label>
-					<a href="{{ path('admin.logout') }}" class="deco"> <p>Deconnexion</p> </a>
+					<a href="{{ path('admin.logout') }}" class="deco">
+						<p>Deconnexion</p>
+					</a>
 					<label for="deconnexion2" class="formUser">Sinon vous pouvez vous connecter ici :</label>
 				</div>
 				<div class="form-floating mb-3">
@@ -25,11 +35,12 @@
 				<div class="form-floating">
 					<label for="connexion_password" class="formUser">Mot de passe</label><br>
 					<input type="password" class="form-control" name="mdp" id="connexion_password" placeholder="Mot de passe">
-
 				</div>
+				{{csrf()}}
 				<input type="submit" value="Connexion" class="submit">
 
 			</form>
-            </div>
-            </div>
+		</div>
+	</div>
+	</main>
 {% endblock %}

@@ -21,9 +21,12 @@
     margin-top: -700px;
     margin-left: 710px;
     color: white;
-    font-size: 35px;
+    font-family: 'candal', sans-serif;
+    font-size: 30px;
 }
-
+.aProposDeNous h1{
+    margin-bottom: 7px;
+}
 .texteApropos {
     background-color: #A6BA41;
     width: 70%;
@@ -37,6 +40,7 @@
     align-items: center;
     color: white;
     font-size: 28px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .imgApropos{
@@ -50,9 +54,9 @@
 .imgTexte{
     border-left: 10px #DBA10F solid;
     width: 38%;
-    height: 53%;
+    height: 55%;
     position: absolute;
-    margin-top: 55px;
+    margin-top: 40px;
     margin-left: 12%;
     background-color: white;
     display: flex;
@@ -66,6 +70,7 @@
 .imgTexte h2{
     margin-top: 2%;
     margin-left: 2%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .imgTexte p{
@@ -73,6 +78,7 @@
     font-size: 18px;
     width: 95%;
     height: 90%;
+    font-family: 'Roboto', sans-serif;
 }
 .imgTexte2{
     border-left: 10px #A6BA41 solid;
@@ -90,12 +96,14 @@
 .imgTexte2 h2{
     margin-top: 2%;
     margin-left: 2%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .imgTexte2 p{
     margin-left: 2%;
     font-size: 18px;
     width: 95%;
+    font-family: 'Roboto', sans-serif;
     height: 90%;
 }
 

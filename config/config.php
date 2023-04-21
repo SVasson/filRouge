@@ -1,16 +1,17 @@
 <?php
 
-use Core\Db\DatabaseFactory;
-use Core\Framework\Renderer\RendererInterface;
-use Core\Framework\Router\Router;
-use Core\Framework\Renderer\TwigRendererFactory;
-use Core\Framework\Router\RouterTwigExtension;
-use Core\Framework\TwigExtensions\AssetsTwigExtension;
-use Core\Session\PHPSession;
-use Core\Session\SessionInterface;
 use Core\Toaster\Toaster;
-use Core\Toaster\ToasterTwigExtension;
+use Core\Db\DatabaseFactory;
+use Core\Session\PHPSession;
 use Doctrine\ORM\EntityManager;
+use Core\Framework\Router\Router;
+use Core\Session\SessionInterface;
+use Core\Toaster\ToasterTwigExtension;
+use Core\Framework\Renderer\RendererInterface;
+use Core\Framework\Router\RouterTwigExtension;
+use Core\Framework\Security\CSRFTwigExtension;
+use Core\Framework\Renderer\TwigRendererFactory;
+use Core\Framework\TwigExtensions\AssetsTwigExtension;
 
 return [
     "doctrine.user" => "root",
@@ -22,7 +23,8 @@ return [
     "twig.extensions" => [
         RouterTwigExtension::class,
         ToasterTwigExtension::class,
-        AssetsTwigExtension::class
+        AssetsTwigExtension::class,
+        CSRFTwigExtension::class
     ],
     Router::class => \DI\create(),
     SessionInterface::class => \DI\get(PHPSession::class),

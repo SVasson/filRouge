@@ -1,0 +1,29 @@
+
+.mainMentionsLegales{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 3.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.titrePrincipalesMentionsLegales{
+    font-family: 'Candal', sans-serif;
+    margin-bottom: 5px;
+}
+.divMentionsLegales{
+    background-color: #A6BA41;
+    border-radius: 20px 20px 0px 0px;
+    width: 40%;
+    text-align: center;
+}
+.aticleMentionsLegales{
+    background-color: white;
+    border-radius: 0px 0px 20px 20px;
+    width: 40%;
+    text-align: center;
+}
+.titreMentionsLegales{
+    font-size: 20px;
+}

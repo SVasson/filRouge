@@ -41,40 +41,44 @@ main {
     top: 15%;
     left: 0;
     text-align: center;
-
- 
-    
+    font-family: 'Roboto', sans-serif;
 }
 
 .formInscription {
     top: 0;
     left: 110%;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .btn-primary{
- width: 49.5%;
+ width: 40%;
  height: 40px;
  border-radius: 5px;
  background-color: #DBA10F;
  border: solid 1px;
  cursor: pointer;
+ margin-top: 3%;
+ font-family: 'candal', sans-serif;
 
 }
 
 .btn-secondary{
-    width: 49.5%;
+    width: 40%;
     height: 40px;
     border-radius: 5px;
     background-color: #DBA10F;
     border: solid 1px;
     cursor: pointer;
+    margin-top: 3%;
+    font-family: 'candal', sans-serif;
+
    }
    .btn-group{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
    }
 
 .form-control{
@@ -90,6 +94,7 @@ main {
     background-color: #DBA10F;
     border: solid 1px;
     cursor: pointer;
+    font-family: 'roboto', sans-serif;
 }
 
 .form-floating{
@@ -145,7 +150,7 @@ main {
     text-align: center;
     align-items: center;
     margin-bottom: 5%;
-margin-top: -5%;
+margin-top: -10%;
 
 }
 .deco{

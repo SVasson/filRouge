@@ -1,5 +1,5 @@
 
-main {
+.mainLoginAdmin {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,6 +7,8 @@ main {
     min-width: 90dvw;
     margin-top: 5%;
     background-color: #a6ba418e;
+    font-family: 'roboto', sans-serif;
+    
 }
 
 .userFormViewPort {
@@ -16,8 +18,6 @@ main {
     border: 1px solid rgba(0,0,0,0.4);
     border-radius: 15px;
     background-color: #A6BA41;
-
-
 }
 
 .formContainer {
@@ -172,7 +172,7 @@ margin-top: -5%;
 text-align: center;
 }
 @media (max-width: 768px) {
-    main {
+    .mainLoginAdmin {
         display: flex;
         flex-direction: column;
         justify-content: center;

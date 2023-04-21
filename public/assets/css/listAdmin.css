@@ -60,6 +60,7 @@
     width: 200px;
     height: 30px;
     border-radius: 8px;
+    font-family: 'candal', sans-serif;
 }
 
 .boutonModif{
@@ -67,10 +68,20 @@
     width: 200px;
     height: 30px;
     border-radius: 8px;
+    font-family: 'candal', sans-serif;
 }
 .traitListeEvent{
     width: 70%;
     background-color: #DBA10F;
     height: 1px;
     border: none;
+}
+.mainListAdmin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 90dvw;
+    margin-top: 5%;
+    background-color: #a6ba418e;
 }

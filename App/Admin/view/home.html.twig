@@ -1,26 +1,34 @@
 {% extends "admin.layout.html.twig" %}
 
 {% block body %}
-    <h1>Bienvenue sur l'administration de l'épicerie Mozart</h1>
-  <h1>Liste des événements</h1>
+<main class="mainHomeAdmin">
+  <h1 class="homeAdmin">Bienvenue sur l'administration de l'épicerie Mozart</h1>
+  <br>
+  <h1 class="homeAdmin2">Liste des Utilisateurs</h1>
 
-    {% for event in events %}
-			<section class="sectionEvent">
-
-				<img style="width: 250px;" src="{{ assets('/assets/img/' ~ event.imgPath) }}">
-				<hr class="traitListeEvent">
-				<h2 class="nomEvent">{{ event.name }}</h2>
-				<hr class="traitListeEvent">
-				<p class="description">{{ event.description }}</p>
-				<hr class="traitListeEvent">
-				<p>Début :
-					{{ event.startDate|date('d/m/Y H:i') }}</p>
-				<p>Fin :
-					{{ event.endDate|date('d/m/Y H:i') }}</p>
-				<hr class="traitListeEvent">
-				<a href="{{ path('admin.edit-event', {id: event.id}) }}"><input class="boutonModif" type="button" value="Modifier"></a>
-				<a href="{{ path('admin.delete', {id: event.id}) }}"><input type="button" value="Supprimer" class="boutonDelete"></a>
-			</section>
-		{% endfor %}
-
+  <article class="articleTable">
+  <div class="divTableauUser">
+    <table class="tableauUserInscrit">
+      <thead class="theadListe">
+        <tr class="nomPrenomMail">
+          <th class="nomList">Nom</th>
+		
+          <th class="prenomList">Prenom</th>
+          <th class="mailList">Email</th>
+        </tr>
+      </thead>
+	  
+      <tbody class="tbodyAdmin">
+        {% for user in users %} 
+          <tr class="listUserAdmin">
+            <td class="nomList"> <hr>{{ user.nom }} <hr></td>
+            <td class="prenomList"> <hr>{{ user.prenom }} <hr></td>
+            <td class="mailList"> <hr>{{ user.mail }} <hr></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  </article>
+</main>
 {% endblock %}

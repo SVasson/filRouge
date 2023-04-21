@@ -1,8 +1,7 @@
 {% extends "admin.layout.html.twig" %}
 
 {% block body %}
-
-
+<main class="mainAddEvent">
     {% if toaster.hasMessages() %}
         {{ toaster.render() }}
     {% endif %}
@@ -36,4 +35,6 @@
         </div>
 
     </form>
+    </main>
+
 {% endblock %}
