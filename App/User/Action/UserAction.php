@@ -77,7 +77,7 @@ class UserAction
         if ($result !== true) {
             return $result;
         }
-        $this->toaster->makeToast("Inscription reussie, vous pouvez vous connécter", Toaster::SUCCESS);
+        $this->toaster->makeToast("Inscription reussie, vous pouvez vous connecter", Toaster::SUCCESS);
         return $this->redirect('user.home');
     }
 

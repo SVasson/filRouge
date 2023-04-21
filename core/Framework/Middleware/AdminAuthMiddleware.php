@@ -36,7 +36,7 @@ class AdminAuthMiddleware extends AbstractMiddleware
             if (!$auth->isAdmin()) {
                 if(!$auth->isLogged()){
                     //Si personne n'est connécté on renvoi un message en consequence
-                    $this->toaster->makeToast("Vous devez être connecté pour accéder à cette page", Toaster::ERROR);
+                    $this->toaster->makeToast("Vous devez être connecter pour accéder à cette page", Toaster::ERROR);
                 } elseif(!$auth->isAdmin()){
                     //Si quelqu'un est connécté mais n'est pas un administrateur on lui refuse l'accès
                     $this->toaster->makeToast("Vous ne possédez pas les droits d'accès", Toaster::ERROR);

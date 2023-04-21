@@ -63,6 +63,12 @@
     justify-content: center;
     align-items: center;
   }
+.mentionLegalesFooter a:hover{
+  color: #DBA10F;
+}
+.mentionLegalesFooter a{
+  color: black; text-decoration: none;
+}
 
   .mapFooter{
     width: 30%;

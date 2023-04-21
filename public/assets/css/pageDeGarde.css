@@ -25,7 +25,9 @@
     font-size: 35px;
     font-family: 'Candal', sans-serif;
 }
-
+.presentation h1{
+  margin-bottom: 10px;
+}
 .texte {
     background-color: #A6BA41;
     width: 50%;

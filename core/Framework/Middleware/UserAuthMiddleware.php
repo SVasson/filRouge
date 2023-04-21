@@ -32,7 +32,7 @@ class UserAuthMiddleware extends AbstractMiddleware
             $auth = $this->container->get(UserAuth::class);
             if (!$auth->isLogged() or !$auth->isUser()) {
                 $toaster = $this->container->get(Toaster::class);
-                $toaster->makeToast("Veuillez vous connecté pour continuer", Toaster::ERROR);
+                $toaster->makeToast("Veuillez vous connecter pour continuer", Toaster::ERROR);
                 return $this->redirect('user.login');
             }
         }
