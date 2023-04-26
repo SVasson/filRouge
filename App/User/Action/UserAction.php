@@ -59,7 +59,7 @@ class UserAction
         $data = $request->getParsedBody();
         $validator = new Validator($data);
         $errors = $validator
-            ->required('nom', 'prenom', 'mail', 'mdp', 'mdp_confirm')
+            ->required('nom', 'prenom', 'mail','numeroDeTel', 'mdp', 'mdp_confirm')
             ->email('mail')
             ->strSize('mdp', 12, 50)
             ->confirm('mdp')

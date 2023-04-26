@@ -164,7 +164,7 @@ button {
   font-family: 'Roboto', sans-serif;
 }
 
-    @media (max-width: 768px) {
+    @media (max-width: 376px) {
  
         .maVideo {
 
@@ -181,14 +181,14 @@ button {
           width: 80%;
           margin-top: -350px;
           margin-left: 10%;
-          font-size: 25px;
+          font-size: 20px;
         }
       
         .texte {
           width: 80%;
           margin-top: -220px;
           margin-left: 10%;
-          font-size: 25px;
+          font-size: 16px;
         }
       
         .boutton {

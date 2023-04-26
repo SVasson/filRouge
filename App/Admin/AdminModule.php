@@ -34,12 +34,15 @@ class AdminModule extends AbstractModule
 
         $this->router->get('/admin/add-event', [$adminAction, 'addEvent'], 'admin.add-event');
         $this->router->get('/admin/edit-event/{id:[\d]+}', [$adminAction, 'editEvent'], 'admin.edit-event');
+        $this->router->get('/admin/edit-user/{id:[\d]+}', [$adminAction, 'editUser'], 'admin.edit-user');
 
 
         $this->router->post('/admin/add-event', [$adminAction, 'addEvent']);
+        $this->router->post('/admin/edit-user/{id:[\d]+}', [$adminAction, 'editUser']);
         $this->router->post('/admin/edit-event/{id:[\d]+}', [$adminAction, 'editEvent']);
         $this->router->get('/admin/listEvent', [$adminAction, 'listEvent'], 'admin.listEvent');
         $this->router->get('/admin/delete/{id:[\d]+}', [$adminAction, 'delete'], 'admin.delete');
+        $this->router->get('/admin/deleteUser/{id:[\d]+}', [$adminAction, 'deleteUser'], 'admin.deleteUser');
 
     }
 }

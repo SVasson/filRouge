@@ -12,7 +12,6 @@ use Core\Session\SessionInterface;
 use Doctrine\ORM\EntityRepository;
 use GuzzleHttp\Psr7\ServerRequest;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\MessageInterface;
 use Core\Framework\Validator\Validator;
 use Psr\Http\Message\ResponseInterface;
 use Core\Framework\Router\RedirectTrait;
@@ -49,6 +48,7 @@ class AdminAction
         $this->toaster = $container->get(Toaster::class);
 
         $this->repository = $this->entityManager->getRepository(Event::class);
+        $this->repository = $this->entityManager->getRepository(User::class);
     }
 
     public function home(ServerRequest $request)
@@ -245,6 +245,25 @@ class AdminAction
         //On redirige sur la liste des event
         return $this->redirect('admin.listEvent');
     }
+    public function deleteUser(ServerRequestInterface $request)
+    {
+
+        //On récupère l'id passez en paramètre de requête
+        $id = $request->getAttribute('id');
+
+        //On récupère l'utilisateur qui correspond à l'id
+        $user = $this->repository->find($id);
+
+        //On prépare l'objet à etre supprimer de la base de données
+        $this->entityManager->remove($user);
+        //On execute la suppression
+        $this->entityManager->flush();
+        //On créer un Toast success pour l'utilisateur
+        $this->toaster->makeToast('Utilisateur supprimé', Toaster::SUCCESS);
+
+        //On redirige sur la liste des user
+        return $this->redirect('admin.home');
+    }
 
     private function fileGuards(UploadedFile $file)
     {
@@ -281,4 +300,60 @@ class AdminAction
 
         return true;
     }
+    ///////////////////////////////////////////////
+    public function editUser(ServerRequestInterface $request)
+{
+    // Récupération de l'id de l'utilisateur à modifier depuis les attributs de la requête
+    $id = $request->getAttribute('id');
+
+    // Récupération de l'utilisateur à modifier depuis la base de données
+    $user = $this->entityManager->getRepository(User::class)->find($id);
+
+    // Vérification que l'utilisateur existe
+    if (!$user) {
+        $this->toaster->makeToast('Cet utilisateur n\'existe pas.', Toaster::ERROR);
+        return $this->redirect('admin.home');
+    }
+
+    // Récupération de la méthode HTTP utilisée pour la requête
+    $method = $request->getMethod();
+
+    // Si le formulaire a été soumis
+    if ($method === 'POST') {
+        // Récupération des données du formulaire
+        $data = $request->getParsedBody();
+
+        // Validation des données du formulaire
+        $validator = new Validator($data);
+        $errors = $validator
+            ->required('nom', 'prenom', 'numeroDeTel')
+            ->getErrors();
+
+        // Si des erreurs ont été trouvées, on affiche un message d'erreur
+        if ($errors) {
+            foreach ($errors as $error) {
+                $this->toaster->makeToast($error->toString(), Toaster::ERROR);
+            }
+            return $this->renderer->render('@admin/edit-user', ['user' => $user]);
+        }
+
+        // Modification de l'utilisateur avec les nouvelles données
+        $user->setNom($data['nom']);
+        $user->setPrenom($data['prenom']);
+        $user->setNumeroDeTel($data['numeroDeTel']);
+
+        // Enregistrement des modifications dans la base de données
+        $this->entityManager->flush();
+
+        // Affichage d'un message de succès
+        $this->toaster->makeToast('L\'utilisateur a été modifié avec succès.', Toaster::SUCCESS);
+
+        // Redirection vers la page d'accueil de l'administration
+        return $this->redirect('admin.home');
+    }
+
+    // Affichage du formulaire de modification de l'utilisateur
+    return $this->renderer->render('@admin/edit-user', ['user' => $user]);
+}
+
 }

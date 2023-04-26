@@ -12,9 +12,9 @@
       <thead class="theadListe">
         <tr class="nomPrenomMail">
           <th class="nomList">Nom</th>
-		
           <th class="prenomList">Prenom</th>
           <th class="mailList">Email</th>
+          <th class="numeroList">Numéro de télephone</th>
         </tr>
       </thead>
 	  
@@ -24,7 +24,11 @@
             <td class="nomList"> <hr>{{ user.nom }} <hr></td>
             <td class="prenomList"> <hr>{{ user.prenom }} <hr></td>
             <td class="mailList"> <hr>{{ user.mail }} <hr></td>
+            <td class="numeroList"> <hr>{{ user.numeroDeTel }} <hr></td>
+              <td><a href="{{ path('admin.edit-user', {id: user.id}) }}"><input class="boutonModifUser" type="button" value="Modifier"></a></td>   
+				    <td><a href="{{ path('admin.deleteUser', {id: user.id}) }}"><input type="button" value="Supprimer" class="boutonDeleteUser"></a></td>  
           </tr>
+          
         {% endfor %}
       </tbody>
     </table>

@@ -26,6 +26,11 @@ class User{
      * @var string
      */
     private string $prenom;
+      /**
+     * @ORM\Column(type="string", length="55")
+     * @var string
+     */
+    private string $numeroDeTel;
   /**
      * @ORM\Column(type="string", length="150")
      * @var string
@@ -159,4 +164,28 @@ class User{
 
 
 
+
+    /**
+     * Set numeroDeTel.
+     *
+     * @param string $numeroDeTel
+     *
+     * @return User
+     */
+    public function setNumeroDeTel($numeroDeTel)
+    {
+        $this->numeroDeTel = $numeroDeTel;
+
+        return $this;
+    }
+
+    /**
+     * Get numeroDeTel.
+     *
+     * @return string
+     */
+    public function getNumeroDeTel()
+    {
+        return $this->numeroDeTel;
+    }
 }

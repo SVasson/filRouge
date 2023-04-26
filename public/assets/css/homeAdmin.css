@@ -22,30 +22,38 @@
 
 .tableauUserInscrit {
 
-    width: 20%;
+    width: 100%;
     font-family: 'roboto', sans-serif;
 }
 
 .nomList {
     text-align: center;
-    width: 20%;
+    width: 30%;
+    margin-top: 6.5px;
 }
 
 .prenomList {
     text-align: center;
-    width: 20%;
+    width: 30%;
+    margin-top: 6.5px;
 }
 
 .mailList {
     text-align: center;
     width: 30%;
+    margin-top: 6.5px;
+}
+.numeroList {
+    text-align: center;
+    width: 30%;
+    margin-top: 6.5px;
 }
 
 .divTableauUser {
     margin-top: 3%;
     margin-bottom: 3%;
     overflow: auto;
-    width: 25%;
+    width: 80%;
     height: 450px;
     display: flex;
     justify-content: center;
@@ -54,7 +62,7 @@
 
 .nomPrenomMail {
 
-    width: 450px;
+    width: 80%;
     display: flex;
     justify-content: space-around;
     font-size: 20px;
@@ -63,7 +71,7 @@
 
 .listUserAdmin {
     margin-top: 3%;
-    width: 470px ;
+    width: 95% ;
     display: flex;
     justify-content: space-around;
     border-left: #DBA10F solid 10px;
@@ -91,8 +99,25 @@
 
 .tbodyAdmin {
  
-    width: 450px;
+    width: 100%;
     background-color: white;
     
     
+}
+
+.boutonModifUser{
+    width: 80%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #DBA10F;
+    margin-left: 50px;
+    margin-top: 3px;
+}
+.boutonDeleteUser{
+    width: 80%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #DBA10F;
+    margin-left: 50px;
+    margin-top: 3px;
 }

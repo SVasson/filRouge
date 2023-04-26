@@ -26,6 +26,11 @@ class User{
      * @var string
      */
     private string $prenom;
+      /**
+     * @ORM\Column(type="string", length="55")
+     * @var string
+     */
+    private string $numeroDeTel;
   /**
      * @ORM\Column(type="string", length="150")
      * @var string
