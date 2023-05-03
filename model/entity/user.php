@@ -3,6 +3,8 @@
 namespace Model\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity
@@ -187,5 +189,48 @@ class User{
     public function getNumeroDeTel()
     {
         return $this->numeroDeTel;
+    }
+        /**
+     * @ORM\ManyToMany(targetEntity=Participation::class, mappedBy="user")
+     */
+    private $participations;
+
+    public function __construct()
+    {
+        $this->participations = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Participation[]
+     */
+    public function getParticipations(): Collection
+    {
+        return $this->participations;
+    }
+
+    /**
+     * Add participation.
+     *
+     * @param \Model\Entity\Participation $participation
+     *
+     * @return User
+     */
+    public function addParticipation(\Model\Entity\Participation $participation)
+    {
+        $this->participations[] = $participation;
+
+        return $this;
+    }
+
+    /**
+     * Remove participation.
+     *
+     * @param \Model\Entity\Participation $participation
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeParticipation(\Model\Entity\Participation $participation)
+    {
+        return $this->participations->removeElement($participation);
     }
 }

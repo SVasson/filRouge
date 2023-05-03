@@ -2,7 +2,10 @@
 
 namespace Model\Entity;
 
+use Model\Entity\Participation;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -113,5 +116,54 @@ class Event
     public function getImgPath()
     {
         return $this->imgPath;
+    }
+
+
+
+
+
+        /**
+     * @ORM\ManyToMany(targetEntity=Participation::class, mappedBy="event")
+     */
+    private $participations;
+
+    public function __construct()
+    {
+        $this->participations = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Participation[]
+     */
+    public function getParticipations(): Collection
+    {
+        return $this->participations;
+    }
+
+
+    /**
+     * Add participation.
+     *
+     * @param \Model\Entity\Participation $participation
+     *
+     * @return Event
+     */
+    public function addParticipation(Participation $participation)
+    {
+        $this->participations[] = $participation;
+
+        return $this;
+    }
+
+    /**
+     * Remove participation.
+     *
+     * @param \Model\Entity\Participation $participation
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeParticipation(Participation $participation)
+    {
+        return $this->participations->removeElement($participation);
     }
 }

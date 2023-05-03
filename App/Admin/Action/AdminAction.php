@@ -6,6 +6,7 @@ use Model\Entity\User;
 use Model\Entity\Event;
 use Core\Toaster\Toaster;
 use Doctrine\ORM\EntityManager;
+use Model\Entity\Participation;
 use Core\Framework\Router\Router;
 use GuzzleHttp\Psr7\UploadedFile;
 use Core\Session\SessionInterface;
@@ -131,7 +132,8 @@ class AdminAction
     {
         $id = $request->getAttribute('id');
 
-        $event = $this->repository->find($id);
+        //On récupère l'évenement qui correspond à l'id
+        $event = $this->entityManager->getRepository(Event::class)->find($id);
 
         if (!$event) {
             $this->toaster->makeToast('Cet événement n\'existe pas.', Toaster::ERROR);
@@ -178,8 +180,6 @@ class AdminAction
             $this->entityManager->flush();
 
             $this->toaster->makeToast('L\'événement a été modifié avec succès.', Toaster::SUCCESS);
-
-            return $this->renderer->render('@admin/home');
         }
 
         return $this->renderer->render('@admin/edit-event', [
@@ -188,6 +188,9 @@ class AdminAction
             'endDate' => $event->getEndDate()->format('Y-m-d'),
         ]);
     }
+//////////////////
+
+
 
     /////////////////////
     /**
@@ -228,7 +231,7 @@ class AdminAction
         $id = $request->getAttribute('id');
 
         //On récupère l'évenement qui correspond à l'id
-        $event = $this->repository->find($id);
+        $event = $this->entityManager->getRepository(Event::class)->find($id);
 
         //On prépare l'objet à etre supprimer de la base de données
         $this->entityManager->remove($event);
@@ -252,7 +255,7 @@ class AdminAction
         $id = $request->getAttribute('id');
 
         //On récupère l'utilisateur qui correspond à l'id
-        $user = $this->repository->find($id);
+        $user = $this->entityManager->getRepository(User::class)->find($id);
 
         //On prépare l'objet à etre supprimer de la base de données
         $this->entityManager->remove($user);

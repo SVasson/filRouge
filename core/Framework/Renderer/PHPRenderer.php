@@ -23,7 +23,7 @@ class PHPRenderer implements RendererInterface
         }
     }
 
-    //$renderer->render('@blog/addVehicule')
+ 
     //$renderer->render('header')
     //$renderer->render('test', ['name' => 'Cedric'])
     public function render(string $view, array $params = []): string

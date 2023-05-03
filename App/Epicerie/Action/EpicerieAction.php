@@ -7,7 +7,6 @@ use DateTimeImmutable;
 use Model\Entity\Event;
 use Core\Toaster\Toaster;
 use GuzzleHttp\Psr7\Response;
-use Model\Entity\Participant;
 use Doctrine\ORM\EntityManager;
 use Core\Session\SessionInterface;
 use GuzzleHttp\Psr7\ServerRequest;

@@ -5,24 +5,31 @@
 	<h1 class="listEvent">Liste des événements</h1>
 
 	<h3 class="dispoEvent">Voici la liste des évenements qui sont disponibles:</h3>
-    <article class="zoneEvent">
+	<article class="zoneEvent">
 
-			 {% for event in events %}
-                <section class="sectionEvent">
-                <img style="width: 250px;" src="{{ assets('/assets/img/' ~ event.imgPath) }}">
-                <hr class="traitListeEvent">
-                <h2 class="nomEvent">{{ event.name }}</h2>
-                <hr class="traitListeEvent">
-                <p class="description">{{ event.description }}</p>
-                <hr class="traitListeEvent">
-                <p>Début : {{ event.startDate|date('d/m/Y H:i') }}</p>
-                <p>Fin : {{ event.endDate|date('d/m/Y H:i') }}</p>
-                <hr class="traitListeEvent">
-                <p class="reserver">Afin de réserver vous pouvez appelez au 06 07 25 13 12</p>
-                </section>
-        {% endfor %}
+		{% for event in events %}
+			<section class="sectionEvent">
+				<img style="width: 250px;" src="{{ assets('/assets/img/' ~ event.imgPath) }}">
+				<hr class="traitListeEvent">
+				<h2 class="nomEvent">{{ event.name }}</h2>
+				<hr class="traitListeEvent">
+				<p class="description">{{ event.description }}</p>
+				<hr class="traitListeEvent">
+				<p>Début :
+					{{ event.startDate|date('d/m/Y H:i') }}</p>
+				<p>Fin :
+					{{ event.endDate|date('d/m/Y H:i') }}</p>
+				<hr class="traitListeEvent">
+				<div class="inputCoiffeur">
+					<form method="POST" action="{{ path('user.participer', {id: event.id}) }}">
+						<button type="submit" class="btn btn-primary">Participer</button>
+						{{csrf()}}
+					</form>
+				</div>
+			</section>
+		{% endfor %}
 
-</article>
+	</article>
 
 
 {% endblock %}

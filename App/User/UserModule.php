@@ -33,6 +33,13 @@ class UserModule extends AbstractModule
         $this->router->get('/user/logout', [$userAction, 'logout'], 'user.logout');
         $this->router->get('/user/home', [$userAction, 'home'], 'user.home');
         $this->router->get('/user/listEventUser', [$userAction, 'listEventUser'], 'user.listEventUser');
+        $this->router->get('/user/participer/{id:\d+}', function($request, $params) use ($userAction) {
+             return $userAction->participerAction($request, $params); 
+            }, 'user.participer');
+            $this->router->post('/user/participer/{id:\d+}', [$userAction, 'participerAction'], 'user.participer');
+
+
+
     }
 
 }

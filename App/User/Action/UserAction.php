@@ -8,6 +8,7 @@ use Model\Entity\Event;
 use Core\Toaster\Toaster;
 use GuzzleHttp\Psr7\Response;
 use Doctrine\ORM\EntityManager;
+use Model\Entity\Participation;
 use Core\Framework\Auth\UserAuth;
 use Core\Framework\Router\Router;
 use Core\Session\SessionInterface;
@@ -41,6 +42,8 @@ class UserAction
         $this->toaster = $container->get(Toaster::class);
         $this->router = $container->get(Router::class);
         $this->repository = $container->get(EntityManager::class)->getRepository(User::class);
+        $this->repository = $container->get(EntityManager::class)->getRepository(Event::class);
+        $this->repository = $container->get(EntityManager::class)->getRepository(Participation::class);
         $this->session = $container->get(SessionInterface::class);
         $user = $this->session->get('auth');
         if ($user) {
@@ -59,7 +62,7 @@ class UserAction
         $data = $request->getParsedBody();
         $validator = new Validator($data);
         $errors = $validator
-            ->required('nom', 'prenom', 'mail','numeroDeTel', 'mdp', 'mdp_confirm')
+            ->required('nom', 'prenom', 'mail', 'numeroDeTel', 'mdp', 'mdp_confirm')
             ->email('mail')
             ->strSize('mdp', 12, 50)
             ->confirm('mdp')
@@ -90,7 +93,6 @@ class UserAction
             ->required('mail', 'mdp')
             ->email('mail')
             ->getErrors();
-
         if ($errors) {
             foreach ($errors as $error) {
                 $this->toaster->makeToast($error->toString(), Toaster::ERROR);
@@ -152,5 +154,34 @@ class UserAction
             'events' => $events,
             'user' => $user
         ]);
+    }
+
+    /**
+     * @Route("/participer/{id}", name="user.participer", methods={"GET"})
+     */
+    public function participerAction(ServerRequest $request, array $params = []): ResponseInterface
+    {
+        // Récupérer l'id de l'événement à partir des paramètres de la route
+        $eventId = (int) $request->getAttribute('params')['id'];
+
+        // Récupérer l'utilisateur connecté
+        $user = $this->session->get('auth');
+
+        // Récupérer l'événement correspondant à l'id
+        $event = $this->entityManager->getRepository(Event::class)->find($eventId);
+
+        // Créer une nouvelle Participation
+        $participation = new Participation();
+
+        // Définir l'utilisateur et l'événement
+        $participation->setUser($user);
+        $participation->setEvent($event);
+
+        // Enregistrer la participation dans la base de données
+        $this->entityManager->persist($participation);
+        $this->entityManager->flush();
+
+        //On redirige sur la liste des event
+        return $this->redirect('user.listEventUser');
     }
 }
