@@ -1,7 +1,7 @@
 .maVideo {
 
     width: 100%;
-    height: 780px;
+    height: 600px;
     overflow: hidden;
 
 }
@@ -14,15 +14,15 @@
 
 .presentation {
     background-color: #A6BA41;
-    width: 25%;
+    width: 430px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    margin-top: -700px;
-    margin-left: 710px;
+    margin-top: -500px;
+    margin-left: 420px;
     color: white;
-    font-size: 35px;
+    font-size: 28px;
     font-family: 'Candal', sans-serif;
 }
 .presentation h1{
@@ -32,18 +32,18 @@
     background-color: #A6BA41;
     width: 50%;
     position: absolute;
-    margin-top: -450px;
-    margin-left: 500px;
+    margin-top: -350px;
+    margin-left: 27%;
     text-align: center;
     color: white;
-    font-size: 35px;
+    font-size: 25px;
     font-family: 'Roboto', sans-serif;
 }
 
 .boutton {
     position: absolute;
     margin-top: -150px;
-    margin-left: 1500px;
+    margin-left: 80%;
     color: white;
     font-size: 35px;
     
@@ -54,39 +54,44 @@ button {
     width: 120px;
     height: 40px;
     border-radius: 15px;
-    
     cursor: pointer;
 }
 
 
 .map {
-    margin-left: 47%;
-    margin-top: 3.5%;
+    margin-left: 590px;
+    margin-top: 50px;
+
 }
 
+.miniMap{
+  width: 600px;
+  height: 500px;
+}
+/* width="600" height="500"  */
 .where {
     border-left: 10px #DBA10F solid;
-    width: 38%;
-    height: 53%;
+    width: 500px;
+    height: 420px;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 49px;
-    margin-left: 12%;
+    margin-top: 38px;
+    margin-left: 150px;
     background-color: white;
 
 
 }
 
 .ouNousTrouver {
-    width: 85%;
+    width: 450px;
     font-family: 'Candal', sans-serif;
 
 }
 
 .ouNousTrouver h2 {
-    font-size: 30px;
+    font-size: 28px;
     margin-bottom: 2%;
 }
 
@@ -102,34 +107,34 @@ button {
 
 .maVideo2 {
 
-    width: 60%;
+    width: 810px;
     height: 550px;
     overflow: hidden;
-    margin-left: 34.3%;
+    margin-left: 380px;
     margin-top: 5%;
 
 }
 
 .myVideo2 {
-    width: 100%;
+    width: 1100px;
 
 }
 
 .barreverte {
     background-color: #A6BA41;
-    width: 15%;
-    height: 59.3%;
+    width: 250px;
+    height: 550px;
     position: absolute;
     opacity: 0.5;
 }
 
 .caseContact {
     background-color: white;
-    margin-top: 1.7%;
-    margin-left: 12%;
+    margin-top: 20px;
+    margin-left: 150px;
     border-left: 10px #A6BA41 solid;
-    width: 35%;
-    height: 53%;
+    width: 450px;
+    height: 510px;
     position: absolute;
     z-index: 1;
 
@@ -146,9 +151,9 @@ button {
 .blocContact {
     display: flex;
     flex-direction: column;
-    width: 70%;
-    height: 100%;
-    margin-left: 10%;
+    width: 300px;
+    height: 510px;
+    margin-left: 50px;
     
 }
 
@@ -157,7 +162,7 @@ button {
 
 }
 .contactPDG{
-  margin-left: 65%; 
+  margin-left: 200px; 
   border: none; 
   background-color: white; 
   cursor: pointer;

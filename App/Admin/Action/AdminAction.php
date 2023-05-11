@@ -52,12 +52,15 @@ class AdminAction
         $this->repository = $this->entityManager->getRepository(User::class);
     }
 
+    //////////////////////////////////////////////////////////////////////
+
     public function home(ServerRequest $request)
     {
-        $users = $this->entityManager->getRepository(User::class)->findAll(); 
         // Recupere tout les utilisateur de la base de donnée
-    
-        return $this->renderer->render('@admin/home', ['users' => $users]); 
+        $users = $this->entityManager->getRepository(User::class)->findAll();
+
+
+        return $this->renderer->render('@admin/home', ['users' => $users]);
         //les passent en vue 
     }
     /////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,7 +98,7 @@ class AdminAction
             if ($error !== true) {
                 return $error;
             }
-           
+
             //Si tout va bien avec le fichier, on récupère le nom
             $fileName = $file->getClientFileName();
             //On assemble le nom du fichier avec le chemin du dossier où il sera enregistré
@@ -120,7 +123,7 @@ class AdminAction
 
             $this->toaster->makeToast('L\'événement a été ajouté avec succès.', Toaster::SUCCESS);
 
-            return $this->redirect('admin.add-event');
+            return $this->redirect('admin.listEvent');
         }
 
         return $this->renderer->render('@admin/add-event');
@@ -188,7 +191,7 @@ class AdminAction
             'endDate' => $event->getEndDate()->format('Y-m-d'),
         ]);
     }
-//////////////////
+    //////////////////
 
 
 
@@ -209,6 +212,7 @@ class AdminAction
         return $response;
     }
 
+    //////////////////////////////////////////////////////////////////////
 
     public function listEvent(ServerRequestInterface $request): ResponseInterface
     {
@@ -220,9 +224,28 @@ class AdminAction
             'events' => $events,
             'admin' => $this->session->get('admin')
         ]);
-
     }
-    ////////////////////
+    //////////////////////////////////////////////////////////////////////
+    public function listParticipant(ServerRequestInterface $request): ResponseInterface
+    {
+        // Récupération des participations depuis la base de données
+        $participations = $this->entityManager->getRepository(Participation::class)->findAll();
+
+        // Récupération des événements depuis la base de données
+        $events = $this->entityManager->getRepository(Event::class)->findAll();
+
+        // Recupere tout les utilisateur de la base de donnée
+        $users = $this->entityManager->getRepository(User::class)->findAll();
+
+        // Rendu de la vue avec les participation
+        return $this->render('@admin/listParticipant', [
+            'participations' => $participations,
+            'events' => $events,
+            'users' => $users,
+            'admin' => $this->session->get('admin')
+        ]);
+    }
+    //////////////////////////////////////////////////////////////////////
 
     public function delete(ServerRequestInterface $request)
     {
@@ -232,6 +255,16 @@ class AdminAction
 
         //On récupère l'évenement qui correspond à l'id
         $event = $this->entityManager->getRepository(Event::class)->find($id);
+
+        $participations = $event->getParticipation();
+
+        $arrayLenght = sizeof($participations);
+        if ($arrayLenght > 0) {
+            foreach ($participations as $participation) {
+                $participation = $this->entityManager->getRepository(Participation::class)->find($participation->getId());
+                $this->entityManager->remove($participation);
+            }
+        }
 
         //On prépare l'objet à etre supprimer de la base de données
         $this->entityManager->remove($event);
@@ -248,26 +281,72 @@ class AdminAction
         //On redirige sur la liste des event
         return $this->redirect('admin.listEvent');
     }
+
+
+    //////////////////////////////////////////////////////////////////////
+
     public function deleteUser(ServerRequestInterface $request)
     {
-
-        //On récupère l'id passez en paramètre de requête
+        // On récupère l'id passé en paramètre de requête
         $id = $request->getAttribute('id');
 
-        //On récupère l'utilisateur qui correspond à l'id
+        // On récupère l'utilisateur qui correspond à l'id
         $user = $this->entityManager->getRepository(User::class)->find($id);
 
-        //On prépare l'objet à etre supprimer de la base de données
+        // On récupère toutes les participations de cet utilisateur dans la table de jointure
+        $participations = $user->getParticipation();
+
+        $arrayLenght = sizeof($participations);
+        // On supprime toutes les participations de cet utilisateur dans la table de jointure
+        if ($arrayLenght > 0) {
+            foreach ($participations as $participation) {
+                $participation = $this->entityManager->getRepository(Participation::class)->find($participation->getId());
+                $this->entityManager->remove($participation);
+            }
+        }
+
+        // On prépare l'objet à être supprimé de la base de données
         $this->entityManager->remove($user);
-        //On execute la suppression
+
+        // On exécute la suppression
         $this->entityManager->flush();
-        //On créer un Toast success pour l'utilisateur
+
+        // On créer un Toast success pour l'utilisateur
         $this->toaster->makeToast('Utilisateur supprimé', Toaster::SUCCESS);
 
-        //On redirige sur la liste des user
+        // On redirige sur la liste des utilisateurs
         return $this->redirect('admin.home');
     }
 
+
+    ////////////////////////////////////////////////////////////////
+    public function deleteParticipant(ServerRequestInterface $request): ResponseInterface
+    {
+        // On récupère l'id de la participation à supprimer passé en paramètre de requête
+        $id = $request->getAttribute('id');
+    
+        // On récupère la participation qui correspond à l'id
+        $participation = $this->entityManager->getRepository(Participation::class)->find($id);
+    
+        if (!$participation) {
+            // On créer un Toast error pour l'utilisateur
+            $this->toaster->makeToast('Participation introuvable', Toaster::ERROR);
+        } else {
+            // On prépare l'objet à être supprimé de la base de données
+            $this->entityManager->remove($participation);
+    
+            // On exécute la suppression
+            $this->entityManager->flush();
+    
+            // On créer un Toast success pour l'utilisateur
+            $this->toaster->makeToast('Participation supprimée', Toaster::SUCCESS);
+        }
+    
+        // On redirige sur la liste des participations
+        return $this->redirect('admin.listParticipant');
+    }
+    
+ ////////////////////////////////////////////////////////////////
     private function fileGuards(UploadedFile $file)
     {
         //Handle Server error
@@ -305,58 +384,57 @@ class AdminAction
     }
     ///////////////////////////////////////////////
     public function editUser(ServerRequestInterface $request)
-{
-    // Récupération de l'id de l'utilisateur à modifier depuis les attributs de la requête
-    $id = $request->getAttribute('id');
+    {
+        // Récupération de l'id de l'utilisateur à modifier depuis les attributs de la requête
+        $id = $request->getAttribute('id');
 
-    // Récupération de l'utilisateur à modifier depuis la base de données
-    $user = $this->entityManager->getRepository(User::class)->find($id);
+        // Récupération de l'utilisateur à modifier depuis la base de données
+        $user = $this->entityManager->getRepository(User::class)->find($id);
 
-    // Vérification que l'utilisateur existe
-    if (!$user) {
-        $this->toaster->makeToast('Cet utilisateur n\'existe pas.', Toaster::ERROR);
-        return $this->redirect('admin.home');
-    }
-
-    // Récupération de la méthode HTTP utilisée pour la requête
-    $method = $request->getMethod();
-
-    // Si le formulaire a été soumis
-    if ($method === 'POST') {
-        // Récupération des données du formulaire
-        $data = $request->getParsedBody();
-
-        // Validation des données du formulaire
-        $validator = new Validator($data);
-        $errors = $validator
-            ->required('nom', 'prenom', 'numeroDeTel')
-            ->getErrors();
-
-        // Si des erreurs ont été trouvées, on affiche un message d'erreur
-        if ($errors) {
-            foreach ($errors as $error) {
-                $this->toaster->makeToast($error->toString(), Toaster::ERROR);
-            }
-            return $this->renderer->render('@admin/edit-user', ['user' => $user]);
+        // Vérification que l'utilisateur existe
+        if (!$user) {
+            $this->toaster->makeToast('Cet utilisateur n\'existe pas.', Toaster::ERROR);
+            return $this->redirect('admin.home');
         }
 
-        // Modification de l'utilisateur avec les nouvelles données
-        $user->setNom($data['nom']);
-        $user->setPrenom($data['prenom']);
-        $user->setNumeroDeTel($data['numeroDeTel']);
+        // Récupération de la méthode HTTP utilisée pour la requête
+        $method = $request->getMethod();
 
-        // Enregistrement des modifications dans la base de données
-        $this->entityManager->flush();
+        // Si le formulaire a été soumis
+        if ($method === 'POST') {
+            // Récupération des données du formulaire
+            $data = $request->getParsedBody();
 
-        // Affichage d'un message de succès
-        $this->toaster->makeToast('L\'utilisateur a été modifié avec succès.', Toaster::SUCCESS);
+            // Validation des données du formulaire
+            $validator = new Validator($data);
+            $errors = $validator
+                ->required('nom', 'prenom', 'numeroDeTel')
+                ->getErrors();
 
-        // Redirection vers la page d'accueil de l'administration
-        return $this->redirect('admin.home');
+            // Si des erreurs ont été trouvées, on affiche un message d'erreur
+            if ($errors) {
+                foreach ($errors as $error) {
+                    $this->toaster->makeToast($error->toString(), Toaster::ERROR);
+                }
+                return $this->renderer->render('@admin/edit-user', ['user' => $user]);
+            }
+
+            // Modification de l'utilisateur avec les nouvelles données
+            $user->setNom($data['nom']);
+            $user->setPrenom($data['prenom']);
+            $user->setNumeroDeTel($data['numeroDeTel']);
+
+            // Enregistrement des modifications dans la base de données
+            $this->entityManager->flush();
+
+            // Affichage d'un message de succès
+            $this->toaster->makeToast('L\'utilisateur a été modifié avec succès.', Toaster::SUCCESS);
+
+            // Redirection vers la page d'accueil de l'administration
+            return $this->redirect('admin.home');
+        }
+
+        // Affichage du formulaire de modification de l'utilisateur
+        return $this->renderer->render('@admin/edit-user', ['user' => $user]);
     }
-
-    // Affichage du formulaire de modification de l'utilisateur
-    return $this->renderer->render('@admin/edit-user', ['user' => $user]);
-}
-
 }

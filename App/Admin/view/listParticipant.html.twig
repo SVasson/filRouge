@@ -1,0 +1,37 @@
+{% extends "admin.layout.html.twig" %}
+
+{% block body %}
+<main class="listParticipantEvent">
+	<h1 class="titreListeParticipant">Liste des participants aux évenements</h1>
+  <article class="articleTable">
+    <div class="divTableauUser">
+	<table class="tableauUserInscrit">
+		<thead class="theadListe">
+			<tr class="nomPrenomMail">
+				<th class="evenementList">Evènement</th>
+				<th class="nomList">Nom</th>
+				<th class="prenomList">Prenom</th>
+				<th class="mailList">Email</th>
+                <th class="numeroList">Numéros de téléphone</th>
+                <th class="numeroList">Supprimer</th>
+			</tr>
+		</thead>
+		<tbody class="tbodyAdmin">
+			{% for participation in participations %}
+				<tr class="tbodyAdmin">
+					<td class="evenementList">{{ participation.event.name }}</td>
+					<td class="nomList">{{ participation.user.nom }}</td>
+					<td class="prenomList">{{ participation.user.prenom }}</td>
+					<td class="mailList">{{ participation.user.mail }}</td>
+					<td class="numeroList">{{ participation.user.numeroDeTel }}</td>
+                    {{csrf()}}
+                     <td><a href="{{ path('admin.deleteParticipant', {id: participation.id}) }}"><input type="button" value="Supprimer" class="boutonDeleteParticipant"></a></td>  
+          </tr>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+      </div>
+  </article>
+</main>
+{% endblock %}

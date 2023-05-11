@@ -1,7 +1,7 @@
 
 .mainMentionsLegales{
     font-family: 'Roboto', sans-serif;
-    margin-top: 3.5%;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,13 +15,13 @@
 .divMentionsLegales{
     background-color: #A6BA41;
     border-radius: 20px 20px 0px 0px;
-    width: 40%;
+    width: 600px;
     text-align: center;
 }
 .aticleMentionsLegales{
     background-color: white;
     border-radius: 0px 0px 20px 20px;
-    width: 40%;
+    width: 600px;
     text-align: center;
 }
 .titreMentionsLegales{

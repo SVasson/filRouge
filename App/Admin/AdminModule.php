@@ -44,7 +44,9 @@ class AdminModule extends AbstractModule
 
 
         $this->router->get('/admin/listEvent', [$adminAction, 'listEvent'], 'admin.listEvent');
+        $this->router->get('/admin/listParticipant', [$adminAction, 'listParticipant'], 'admin.listParticipant');
         $this->router->get('/admin/delete/{id:[\d]+}', [$adminAction, 'delete'], 'admin.delete');
         $this->router->get('/admin/deleteUser/{id:[\d]+}', [$adminAction, 'deleteUser'], 'admin.deleteUser');
+        $this->router->get('/admin/deleteParticipant/{id:[\d]+}', [$adminAction, 'deleteParticipant'], 'admin.deleteParticipant');
     }
 }

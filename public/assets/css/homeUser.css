@@ -1,28 +1,29 @@
-
-.zoneNom{
+.zoneNom {
     display: flex;
     justify-content: center;
-    margin-top: 3%;
+    margin-top: 70px;
     background-color: #A6BA41;
     font-family: 'candal', sans-serif;
+    height: 50px;
 }
-.nom::first-letter{
+
+.nom::first-letter {
     text-transform: capitalize;
     margin-left: 6px;
 }
 
-.cuisine img{
+.cuisine img {
     width: 90%;
 }
 
-.zoneEvent{
+.zoneEvent {
     display: flex;
     justify-content: space-evenly;
     font-family: 'roboto', sans-serif;
-    margin-top: 2.5%;
+    margin-top: 50px;
 }
 
-.coiffeur{
+.coiffeur {
     border: solid 1px;
     width: 20%;
     height: 500px;
@@ -36,79 +37,86 @@
 
 }
 
-.inputCoiffeur{
+.inputCoiffeur {
     width: 50%;
     height: 10%;
- 
+
 }
-.coiffeurBouton{
+
+.coiffeurBouton {
     background-color: #DBA10F;
     width: 95%;
     height: 100%;
     border-radius: 10px;
-   font-family: 'candal', sans-serif;
+    font-family: 'candal', sans-serif;
 }
-.coiffeur img{
+
+.coiffeur img {
     width: 90%;
 }
-.dispoEvent{
+
+.dispoEvent {
     margin-top: 2.5%;
     display: flex;
     margin-left: 5%;
     border-bottom: solid #DBA10F;
     font-family: 'roboto', sans-serif;
-    width: 23%;
+    width: 430px;
 }
 
-hr{
-    width: 80%;
+.traitListeEventUser {
+    width: 200px;
+    border: none;
+    background-color: #DBA10F;
+    height: 2px;
 }
 
 
-.sectionMedecin{
+.sectionMedecin {
     width: 100%;
     margin-top: 6%;
-    height: 1000px;
+    height: 600px;
     overflow: hidden;
 }
-.sectionMedecin img{
+
+.sectionMedecin img {
     width: 100%;
     height: 50%;
 }
 
-.annonceMedecin{
+.annonceMedecin {
     position: absolute;
-        width: 80%;
-    height: 10%;
-    margin-top: 5%;
-    font-size: 35px;
+    width: 1000px;
+    height: 50px;
+    margin-top: 50px;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #a6ba41c1;
-    margin-left: 10%;
+    margin-left: 150px;
     font-family: 'Candal', sans-serif;
 }
 
-.texteMedecin{
+.texteMedecin {
     font-family: 'roboto', sans-serif;
     position: absolute;
-    margin-top: -40%;
-    width: 70%;
-    height: 20%;
-    margin-left: 14.5%;
+    margin-top: -550px;
+    width: 900px;
+    height: 150px;
+    margin-left: 200px;
     text-align: center;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 29px;
+    font-size: 26px;
     background-color: #a6ba41a1;
- 
+
 }
 
 @media (max-width: 768px) {
-    .zoneNom{
+    .zoneNom {
         display: flex;
         width: 100%;
         justify-content: center;
@@ -118,19 +126,23 @@ hr{
         height: 55px;
 
     }
-    .nom::first-letter{
+
+    .nom::first-letter {
         text-transform: capitalize;
         margin-left: 4px;
     }
-    .nom{
+
+    .nom {
         margin-top: 7%;
         position: absolute;
     }
-    .zonePerso{
+
+    .zonePerso {
         margin-left: 3%;
         width: 400px;
     }
-    .cuisine{
+
+    .cuisine {
         border: solid 1px;
         width: 80%;
         height: 500px;
@@ -143,17 +155,18 @@ hr{
         background-color: white;
         margin-top: 5%;
     }
-    
-    .cuisine img{
+
+    .cuisine img {
         width: 90%;
     }
-    
-    .zoneEvent{
+
+    .zoneEvent {
         display: flex;
         justify-content: space-evenly;
         margin-top: 2.5%;
     }
-    .coiffeur{
+
+    .coiffeur {
         border: solid 1px;
         width: 80%;
         margin-top: 5%;
@@ -166,18 +179,20 @@ hr{
         border-radius: 15px;
         background-color: white;
     }
-    .sectionMedecin{
+
+    .sectionMedecin {
         width: 100%;
         margin-top: 6%;
         height: 340px;
         overflow: hidden;
     }
-    .sectionMedecin img{
+
+    .sectionMedecin img {
         width: 500px;
         height: 100%;
     }
-    
-    .annonceMedecin{
+
+    .annonceMedecin {
         position: absolute;
         width: 80%;
         height: 10%;
@@ -189,9 +204,9 @@ hr{
         background-color: #a6ba41c1;
         margin-left: 10%;
     }
-    
-    .texteMedecin{
-    
+
+    .texteMedecin {
+
         position: absolute;
         margin-top: -40%;
         width: 70%;
@@ -204,9 +219,10 @@ hr{
         align-items: center;
         font-size: 15px;
         background-color: #a6ba41a1;
-     
+
     }
-    .texteEventUser{
+
+    .texteEventUser {
         margin-left: 1%;
     }
 }

@@ -42,8 +42,8 @@ class UserAction
         $this->toaster = $container->get(Toaster::class);
         $this->router = $container->get(Router::class);
         $this->repository = $container->get(EntityManager::class)->getRepository(User::class);
-        $this->repository = $container->get(EntityManager::class)->getRepository(Event::class);
-        $this->repository = $container->get(EntityManager::class)->getRepository(Participation::class);
+        // $this->repository = $container->get(EntityManager::class)->getRepository(Event::class);
+        // $this->repository = $container->get(EntityManager::class)->getRepository(Participation::class);
         $this->session = $container->get(SessionInterface::class);
         $user = $this->session->get('auth');
         if ($user) {
@@ -133,6 +133,11 @@ class UserAction
 
         return $response;
     }
+
+
+
+
+
     public function listEventUser(ServerRequestInterface $request): ResponseInterface
     {
 
@@ -156,24 +161,61 @@ class UserAction
         ]);
     }
 
+
+
+
     /**
      * @Route("/participer/{id}", name="user.participer", methods={"GET"})
      */
     public function participerAction(ServerRequest $request, array $params = []): ResponseInterface
     {
         // Récupérer l'id de l'événement à partir des paramètres de la route
-        $eventId = (int) $request->getAttribute('params')['id'];
+        $eventId = (int) $request->getAttribute('id');
 
         // Récupérer l'utilisateur connecté
         $user = $this->session->get('auth');
 
         // Récupérer l'événement correspondant à l'id
         $event = $this->entityManager->getRepository(Event::class)->find($eventId);
+        if ($event === null) {
+            // L'événement n'a pas été trouvé dans la base de données
+            // Rediriger l'utilisateur vers une page d'erreur ou afficher un message d'erreur
+
+            $this->toaster->makeToast('L\'événement demandé n\'existe pas', Toaster::ERROR);
+
+            return $this->redirect('user.listEventUser');
+        }
+
+        // Vérifier si l'utilisateur participe déjà à l'événement
+        $participation = $this->entityManager->getRepository(Participation::class)->findOneBy(['user' => $user, 'event' => $event]);
+        if ($participation !== null) {
+            // L'utilisateur participe déjà à l'événement
+            // Rediriger l'utilisateur vers une page d'erreur ou afficher un message d'erreur
+
+            $this->toaster->makeToast('Vous participez déjà à cet événement', Toaster::ERROR);
+
+            return $this->redirect('user.listEventUser');
+        }
 
         // Créer une nouvelle Participation
         $participation = new Participation();
 
-        // Définir l'utilisateur et l'événement
+        //     // Récupérer l'utilisateur à partir de l'ID dans la session
+        // $userId = $user->getId();
+        // $userRepository = $this->entityManager->getRepository(User::class);
+        // $user = $userRepository->find($userId);
+
+        // if ($user === null) {
+        //     // L'utilisateur n'a pas été trouvé dans la base de données
+        //     // Rediriger l'utilisateur vers une page d'erreur ou afficher un message d'erreur
+        //     $this->toaster->makeToast('Utilisateur introuvable', Toaster::ERROR);
+        //     return $this->redirect('user.listEventUser');
+        // }
+
+        // // Définir l'utilisateur pour la participation
+        // $participation->setUser($user);
+
+        // Définir l'événement
         $participation->setUser($user);
         $participation->setEvent($event);
 
@@ -181,7 +223,7 @@ class UserAction
         $this->entityManager->persist($participation);
         $this->entityManager->flush();
 
-        //On redirige sur la liste des event
+        // Rediriger l'utilisateur vers la liste des événements
         return $this->redirect('user.listEventUser');
     }
 }

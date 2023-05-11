@@ -1,7 +1,7 @@
 .monImg {
     z-index: -1;
     width: 100%;
-    height: 780px;
+    height: 600px;
     overflow: hidden;
 }
 
@@ -12,52 +12,51 @@
 
 .aProposDeNous {
     background-color: #A6BA41;
-    width: 25%;
-    height: 80px;
+    width: 430px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    margin-top: -700px;
-    margin-left: 710px;
+    margin-top: -500px;
+    margin-left: 420px;
     color: white;
-    font-family: 'candal', sans-serif;
-    font-size: 30px;
+    font-size: 28px;
+    font-family: 'Candal', sans-serif;
 }
 .aProposDeNous h1{
-    margin-bottom: 7px;
+    margin-bottom: 10px;
 }
 .texteApropos {
     background-color: #A6BA41;
-    width: 70%;
-    height: 250px;
+    width: 900px;
+    height: 300px;
     position: absolute;
     margin-top: -390px;
-    margin-left: 300px;
+    margin-left: 200px;
     text-align: center;
     justify-content: center;
     display: flex;
     align-items: center;
     color: white;
-    font-size: 28px;
+    font-size: 26px;
     font-family: 'Roboto', sans-serif;
 }
 
 .imgApropos{
-    width: 50%;
-    height: 600px;
+    width: 650px;
+    height: 400px;
     overflow: hidden;
-    margin-left: 34.3%;
-    margin-top: 5%;
+    margin-left: 500px;
+    margin-top: 50px;
 }
 
 .imgTexte{
     border-left: 10px #DBA10F solid;
-    width: 38%;
-    height: 55%;
+    width: 500px;
+    height: 330px;
     position: absolute;
-    margin-top: 40px;
-    margin-left: 12%;
+    margin-top: 30px;
+    margin-left: 120px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -68,25 +67,25 @@
 }
 
 .imgTexte h2{
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-top: 10px;
+    margin-left: 10px;
     font-family: 'Roboto', sans-serif;
 }
 
 .imgTexte p{
-    margin-left: 2%;
+    margin-left: 20px;
     font-size: 18px;
-    width: 95%;
-    height: 90%;
+    width: 450px;
+    height: 300px;
     font-family: 'Roboto', sans-serif;
 }
 .imgTexte2{
     border-left: 10px #A6BA41 solid;
-    width: 38%;
-    height: 43%;
+    width: 500px;
+    height: 380px;
     position: absolute;
-    margin-top: 90px;
-    margin-left: 12%;
+    margin-top: 10px;
+    margin-left: 120px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -94,17 +93,17 @@
 
 }
 .imgTexte2 h2{
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-top: 10px;
+    margin-left: 10px;
     font-family: 'Roboto', sans-serif;
 }
 
 .imgTexte2 p{
-    margin-left: 2%;
+    margin-left: 20px;
     font-size: 18px;
-    width: 95%;
+    width: 450px;
     font-family: 'Roboto', sans-serif;
-    height: 90%;
+    height: 300px;
 }
 
 @media (max-width: 768px) {

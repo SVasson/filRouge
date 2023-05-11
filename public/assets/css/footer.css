@@ -28,7 +28,7 @@
   }
   .logoDonFooter img{
       width: 130px;
-      height: 80%;
+      height: 70%;
   }
   .fa-brands{
       margin-top: 90px;
@@ -75,6 +75,7 @@
     height: 100%;
     display: flex;
     justify-content: center;
+    margin-left: 5%;
     border-left: solid 1px gray;
     border-right: solid 1px gray;
   }

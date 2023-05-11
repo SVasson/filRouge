@@ -6,6 +6,7 @@
     align-items: center;
     min-width: 90dvw;
     margin-top: 5%;
+    height: 550px;
     background-color: #a6ba418e;
     font-family: 'roboto', sans-serif;
     
@@ -18,12 +19,13 @@
     border: 1px solid rgba(0,0,0,0.4);
     border-radius: 15px;
     background-color: #A6BA41;
+
 }
 
 .formContainer {
     width: 100%;
     position: relative;
-    height: 550px;
+    height: 500px;
     background-color: #A6BA41;
 
 }
@@ -46,11 +48,6 @@
     
 }
 
-.formInscription {
-    top: 0;
-    left: 110%;
-    text-align: center;
-}
 
 .btn-primary{
  width: 49.5%;
@@ -170,6 +167,7 @@ margin-top: -5%;
 }
 .loginAdmin{
 text-align: center;
+margin-top: 5%;
 }
 @media (max-width: 768px) {
     .mainLoginAdmin {

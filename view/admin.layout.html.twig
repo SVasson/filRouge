@@ -13,6 +13,7 @@
 			<link rel="stylesheet" href="{{ assets('/assets/css/homeAdmin.css') }}" />
 			<link rel="stylesheet" href="{{ assets('/assets/css/add-event.css') }}" />
 			<link rel="stylesheet" href="{{ assets('/assets/css/edit-event.css') }}" />
+			<link rel="stylesheet" href="{{ assets('/assets/css/edit-user.css') }}" />
 			<link rel="stylesheet" href="{{ assets('/assets/css/listParticipant.css') }}" />
 		{% endblock %}
 		<title>{{ siteName }}</title>
@@ -44,6 +45,10 @@
 						<hr>
 						<a href=" {{ path('admin.listEvent') }} ">
 							<li>liste Evenement</li>
+						</a>
+						<hr>
+						<a href=" {{ path('admin.listParticipant') }} ">
+							<li>liste des Participants</li>
 						</a>
 
 					</ul>
@@ -97,7 +102,7 @@
 			<h3>Plan du site</h3><br>
 						<a href=" {{ path('admin.home') }} ">Page Admin</a><br>
 						<a href=" {{ path('admin.add-event') }} ">creer Evenement</a><br>
-						<a href=" {{ path('user.listEvent') }} ">Liste des évenement</a><br>
+						<a href=" {{ path('admin.listEvent') }} ">Liste des évenement</a><br>
 						<a href=" {{ path('admin.login') }} ">Connexion/Inscription</a><br>
 						
 

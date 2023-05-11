@@ -22,6 +22,7 @@
 				<p>Fin :
 					{{ event.endDate|date('d/m/Y H:i') }}</p>
 				<hr class="traitListeEvent">
+				{{csrf()}}
 				<a href="{{ path('admin.edit-event', {id: event.id}) }}"><input class="boutonModif" type="button" value="Modifier"></a>
 				<a href="{{ path('admin.delete', {id: event.id}) }}"><input type="button" value="Supprimer" class="boutonDelete"></a>
 			</section>

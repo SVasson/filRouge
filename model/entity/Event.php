@@ -123,7 +123,7 @@ class Event
 
 
         /**
-     * @ORM\ManyToMany(targetEntity=Participation::class, mappedBy="event")
+     * @ORM\OneToMany(targetEntity=Participation::class, mappedBy="event")
      */
     private $participations;
 
@@ -135,7 +135,7 @@ class Event
     /**
      * @return Collection|Participation[]
      */
-    public function getParticipations(): Collection
+    public function getParticipation(): Collection
     {
         return $this->participations;
     }

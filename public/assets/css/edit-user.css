@@ -1,0 +1,33 @@
+.formEditUser{
+    border: solid 1px;
+    border-radius: 10px;
+    background-color: #A6BA41;
+    width: 25%;
+    height: 450px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titreModifUser{
+    display: flex;
+text-align: center;
+}
+
+.mainEditUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 90dvw;
+    margin-top: 5%;
+    background-color: #a6ba418e;
+}
+.boutonEditUser{
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #DBA10F;
+    margin-bottom: 20px;
+}

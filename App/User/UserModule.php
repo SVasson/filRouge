@@ -36,7 +36,7 @@ class UserModule extends AbstractModule
         $this->router->get('/user/participer/{id:\d+}', function($request, $params) use ($userAction) {
              return $userAction->participerAction($request, $params); 
             }, 'user.participer');
-            $this->router->post('/user/participer/{id:\d+}', [$userAction, 'participerAction'], 'user.participer');
+            $this->router->post('/user/participer/{id:\d+}', [$userAction, 'participerAction']);
 
 
 

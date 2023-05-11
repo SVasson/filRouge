@@ -18,11 +18,11 @@
 		{% for event in events %}
 			<section class="sectionEvent">
 				<img style="width: 250px;" src="{{ assets('/assets/img/' ~ event.imgPath) }}">
-				<hr class="traitListeEvent">
+				<hr class="traitListeEventUser">
 				<h2 class="nomEvent">{{ event.name }}</h2>
-				<hr class="traitListeEvent">
+				<hr class="traitListeEventUser">
 				<p class="description">{{ event.description }}</p>
-				<hr class="traitListeEvent">
+				<hr class="traitListeEventUser">
 				<div class="inputCoiffeur">
 					<a href=" {{ path('user.listEventUser') }} ">
 						<input type="button" value="En savoir plus" class="coiffeurBouton">

@@ -13,8 +13,8 @@
 
 .sectionEvent{
     border: solid 1px;
-    width: 20%;
-    height: 550px;
+    width: 25%;
+    height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,6 +28,7 @@
 .zoneEvent{
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
 }
 
 .cuisineImg{

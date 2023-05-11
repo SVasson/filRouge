@@ -2,6 +2,7 @@
 
 namespace Model\Entity;
 
+use Model\Entity\Participation;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -43,6 +44,12 @@ class User{
      * @var string
      */
     private string $mdp;
+
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Participation", mappedBy="user")
+     */
+    private $participations;
 
     /**
      * Get id.
@@ -190,10 +197,6 @@ class User{
     {
         return $this->numeroDeTel;
     }
-        /**
-     * @ORM\ManyToMany(targetEntity=Participation::class, mappedBy="user")
-     */
-    private $participations;
 
     public function __construct()
     {
@@ -203,7 +206,7 @@ class User{
     /**
      * @return Collection|Participation[]
      */
-    public function getParticipations(): Collection
+    public function getParticipation(): Collection
     {
         return $this->participations;
     }
@@ -215,7 +218,7 @@ class User{
      *
      * @return User
      */
-    public function addParticipation(\Model\Entity\Participation $participation)
+    public function addParticipation(Participation $participation)
     {
         $this->participations[] = $participation;
 
@@ -229,7 +232,7 @@ class User{
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeParticipation(\Model\Entity\Participation $participation)
+    public function removeParticipation(Participation $participation)
     {
         return $this->participations->removeElement($participation);
     }

@@ -1,38 +1,52 @@
 {% extends "admin.layout.html.twig" %}
 
 {% block body %}
-<main class="mainHomeAdmin">
-  <h1 class="homeAdmin">Bienvenue sur l'administration de l'épicerie Mozart</h1>
-  <br>
-  <h1 class="homeAdmin2">Liste des Utilisateurs</h1>
+	<main class="mainHomeAdmin">
+		<h1 class="homeAdmin">Bienvenue sur l'administration de l'épicerie Mozart</h1>
+		<br>
+		<h1 class="homeAdmin2">Liste des Utilisateurs</h1>
 
-  <article class="articleTable">
-  <div class="divTableauUser">
-    <table class="tableauUserInscrit">
-      <thead class="theadListe">
-        <tr class="nomPrenomMail">
-          <th class="nomList">Nom</th>
-          <th class="prenomList">Prenom</th>
-          <th class="mailList">Email</th>
-          <th class="numeroList">Numéro de télephone</th>
-        </tr>
-      </thead>
-	  
-      <tbody class="tbodyAdmin">
-        {% for user in users %} 
-          <tr class="listUserAdmin">
-            <td class="nomList"> <hr>{{ user.nom }} <hr></td>
-            <td class="prenomList"> <hr>{{ user.prenom }} <hr></td>
-            <td class="mailList"> <hr>{{ user.mail }} <hr></td>
-            <td class="numeroList"> <hr>{{ user.numeroDeTel }} <hr></td>
-              <td><a href="{{ path('admin.edit-user', {id: user.id}) }}"><input class="boutonModifUser" type="button" value="Modifier"></a></td>   
-				    <td><a href="{{ path('admin.deleteUser', {id: user.id}) }}"><input type="button" value="Supprimer" class="boutonDeleteUser"></a></td>  
-          </tr>
-          
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-  </article>
-</main>
+		<article class="articleTable">
+			<div class="divTableauUser">
+				<table class="tableauUserInscrit">
+					<thead class="theadListe">
+						<tr class="nomPrenomMail">
+							<th class="nomList">Nom</th>
+							<th class="prenomList">Prenom</th>
+							<th class="mailList">Email</th>
+							<th class="numeroList">Numéro de télephone</th> 
+              <th class="modifier">Modifier</th> 
+              <th class="supprimer">Supprimer</th> 
+						</tr>
+					</thead>
+
+					<tbody class="tbodyAdmin">
+						{% for user in users %}
+							<tr class="tbodyAdmin">
+								<td class="nomList">
+									{{ user.nom }}
+									</td>
+								<td class="prenomList">
+									{{ user.prenom }}
+									</td>
+								<td class="mailList">
+									{{ user.mail }}
+									</td>
+								<td class="numeroList">
+									{{ user.numeroDeTel }}
+									</td>
+								<td>
+									<a href="{{ path('admin.edit-user', {id: user.id}) }}"><input class="boutonModifUser" type="button" value="Modifier"></a>
+								</td>
+								<td>
+									<a href="{{ path('admin.deleteUser', {id: user.id}) }}"><input type="button" value="Supprimer" class="boutonDeleteUser"></a>
+								</td>
+							</tr>
+							{{csrf()}}
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</article>
+	</main>
 {% endblock %}

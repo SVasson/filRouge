@@ -19,13 +19,13 @@ class Participation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="User", cascade={"persist"}, inversedBy="participations")
+     * @ORM\JoinColumn(nullable="false", name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Event::class)
+     * @ORM\ManyToOne(targetEntity="Event")
      * @ORM\JoinColumn(nullable=false)
      */
     private $event;
