@@ -112,3 +112,13 @@ nav h3{
     font-family: 'roboto', sans-serif;
 }
 
+.logo_france{
+    width: 30px;
+}
+.logo_anglais{
+    width: 30px;
+}
+.logoPays{
+    display: flex;
+    justify-content: space-evenly;
+}

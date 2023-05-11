@@ -41,6 +41,15 @@ class EpicerieAction
     {
         return $this->render('@epicerie/aPropos');
     }
+     /**
+     * Affiche la page A propos en anglais
+     * @param ServerRequestInterface $request
+     * @return ResponseInterface
+     */
+    public function aProposEnglish(ServerRequestInterface $request): ResponseInterface
+    {
+        return $this->render('@epicerie/aProposEnglish');
+    }
 
     /**
      * Affiche la page Contact
@@ -81,7 +90,6 @@ class EpicerieAction
     {
         return $this->render('@epicerie/connexion');
     }
-
     /**
      * Rend une vue avec le RendererInterface
      * @param string $view

@@ -4,7 +4,11 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+		<link rel="shortcut icon" type="image/x-icon" href="{{ assets('assets/img/favicon.ico') }}"/>
 		{% block stylesheet %}
+
 			<link rel="stylesheet" href="{{ assets('/assets/css/nav.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/header.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/pageDeGarde.css') }}"/>
@@ -12,6 +16,8 @@
 			<link rel="stylesheet" href="{{ assets('/assets/css/aPropos.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/homeUser.css') }}"/>
 			<link rel="stylesheet" href="{{ assets('/assets/css/listEvent.css') }}"/>
+			<link rel="stylesheet" href="{{ assets('/assets/css/contact.css') }}"/>
+			<link rel="stylesheet" href="{{ assets('/assets/css/mentionsLegales.css') }}"/>
 		{% endblock %}
 
 		<title>{{ siteName }}</title>
@@ -20,7 +26,7 @@
 	<body>
 
 		<header>
-			<nav role="navigation">
+			<nav class="navigation" role="navigation">
 				<div id="menuToggle">
 					<input type="checkbox"/>
 					<span></span>
@@ -28,27 +34,28 @@
 					<span></span>
 
 					<ul id="menu">
-					<div class="logoPays">
+						<div class="logoPays">
 							<a href="/">
 								<li><img src="/assets/img/france.png" class="logo_france"></li>
 							</a>
 							<hr>
-							<a href="{{ path('epicerie.apropos') }}">
+							<a href="{{ path('epicerie.aProposEnglish') }}">
 								<li><img src="/assets/img/royaume-uni.png" class="logo_anglais"></li>
 							</a>
 							
 						</div>
 						<hr>
 						<a href="{{ path('epicerie.apropos') }}">
-							<li>A propos</li>
+							<li>about</li>
 						</a>
 						<hr>
 						<a href=" {{ path('user.listEventUser') }} ">
-							<li>liste Evenement</li>
+							<li>event list</li>
 						</a>
 						<hr>
+
 						<a href=" {{ path('user.login') }} ">
-							<li>Inscription/Connexion</li>
+							<li>Register/Log in</li>
 						</a>
 						<hr>
 
@@ -68,7 +75,7 @@
 
 			<div class="logoDon">
 				<p class="monCompte">
-					<a href="{{ path('user.home') }}">Mon compte</a>
+					<a href="{{ path('user.login') }}">My account</a>
 				</p>
 				<a href="https://www.facebook.com/epiceriesolidairemozart/?ref=page_internal">
 					<i class="fa-brands fa-facebook"></i>
@@ -94,13 +101,13 @@
 		</main>
 		<footer class="footer1">
 			<div class="logoFooter">
-				<a href=" {{ path('user.home') }} " style="z-index: 0;">
+				<a href="/" style="z-index: 0;">
 					<img src="/assets/img/Logo_Site (1).png">
 				</a>
 			</div>
 			<section class="magasin">
 				<div>
-					<h3>Magasin</h3><br>
+					<h3>Store</h3><br>
 					<p>14 bis, rue Mozart,
 					</p>
 					<p>57000 Metz</p>
@@ -115,16 +122,16 @@
 			</section>
 			<section class="planDuSite">
 				<div>
-					<h3>Plan du site</h3><br>
+					<h3>Site map</h3><br>
 
 					<a href="/">Index</a><br>
 
-					<a href="{{ path('epicerie.apropos') }}">A propos
+					<a href="{{ path('epicerie.apropos') }}">about
 					</a><br>
 
-					<a href=" {{ path('user.listEventUser') }} ">Liste des évenement</a><br>
+					<a href=" {{ path('user.listEventUser') }} ">Event Listing</a><br>
 
-					<a href=" {{ path('user.login') }} ">Connexion/Inscription</a><br>
+					<a href=" {{ path('user.login') }} ">Register/Log in</a><br>
 
 					<a href=" {{ path('epicerie.contact') }} ">Contact</a><br>
 
@@ -144,7 +151,9 @@
 
 		</footer>
 		<footer class="MentionLegales">
-			<h4><a style="color: black; text-decoration: none;" href=" {{ path('epicerie.mentionsLegales') }} ">Mentions Legales</a></h4>
+			<h4 class="mentionLegalesFooter">
+				<a href=" {{ path('epicerie.mentionsLegales') }} ">Legal Notice</a>
+			</h4>
 		</footer>
 		{% block scripts %}
 			<script src="https://kit.fontawesome.com/e73be59cbc.js" crossorigin="anonymous"></script>
