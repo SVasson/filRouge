@@ -43,7 +43,7 @@ $builder->addDefinitions(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIR
 
 foreach ($modules as $module) {
     if (!is_null($module::DEFINITIONS)) {
-        //Si les modules possédent une feuille de configuration personnalisé on l'ajoute aussi
+        //Si les modules possédant ont une feuille de configuration personnalisé on l'ajoute aussi
         $builder->addDefinitions($module::DEFINITIONS);
     }
 }
