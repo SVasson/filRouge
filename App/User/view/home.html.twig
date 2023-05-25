@@ -17,7 +17,7 @@
 
 		{% for event in events %}
 			<section class="sectionEvent">
-				<img style="width: 250px;" src="{{ assets('/assets/img/' ~ event.imgPath) }}">
+				<img class="imgEvenement" src="{{ assets('/assets/img/' ~ event.imgPath) }}">
 				<hr class="traitListeEventUser">
 				<h2 class="nomEvent">{{ event.name }}</h2>
 				<hr class="traitListeEventUser">
@@ -25,7 +25,7 @@
 				<hr class="traitListeEventUser">
 				<div class="inputCoiffeur">
 					<a href=" {{ path('user.listEventUser') }} ">
-						<input type="button" value="En savoir plus" class="coiffeurBouton">
+						<input type="button"  value="En savoir plus" class="coiffeurBouton">
 					</a>
 				</div>
 			</section>
@@ -36,6 +36,6 @@
 
 <section class="sectionMedecin">
 	<h3 class="annonceMedecin">Medecin</h3>
-	<div><img src="/assets/img/7449867_3641634.jpg" alt=""></div>
+	<div><img src="/assets/img/medecin.jpg" alt=""></div>
 	<p class="texteMedecin">Afin de vous assurer une meilleur santé et tout cela gratuitement le Docteur Jean se porte volontaire pour réaliser des consultations tout les Jeudi de 15h à 18h et tout cela bénévolement, donc n'hésitez pas à vous présenter les jours de présences.</p>
 </section>{% endblock %}

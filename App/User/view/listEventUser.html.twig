@@ -9,7 +9,7 @@
 
 		{% for event in events %}
 			<section class="sectionEvent">
-				<img style="width: 250px;" src="{{ assets('/assets/img/' ~ event.imgPath) }}">
+				<img class="imgEventUser"src="{{ assets('/assets/img/' ~ event.imgPath) }}">
 				<hr class="traitListeEvent">
 				<h2 class="nomEvent">{{ event.name }}</h2>
 				<hr class="traitListeEvent">

@@ -11,8 +11,8 @@
 
 .sectionEvent{
     border: solid 1px;
-    width: 350px;
-    height: 550px;
+    width: 450px;
+    height: 650px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,9 +32,13 @@
     border-radius: 10px;
 }
 
+.imgEventUser{
+    width: 300px;
+}
+
 .description{
     width: 300px;
-
+    font-size: 22px;
 }
 
 .reserver{

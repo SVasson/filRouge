@@ -3,22 +3,31 @@
     width: 900px;
 
 }
+.monImage2{
 
-.barreverte {
-    background-color: #A6BA41;
-    width: 250px;
-    height: 550px;
-    position: absolute;
-    opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  margin-left: 500px;
+  height: 700px;
+  margin-top: 100px;
 }
+.barreverte {
+  background-color: #A6BA41;
+  width: 150px;
+  height: 700px;
+  position: absolute;
+  margin-top: 0px;
+  opacity: 0.5;
+  margin-right: 750px;
 
+}
 .caseContact2 {
     background-color: white;
-    margin-top: 20px;
-    margin-left: 150px;
+    margin-top: 40px;
+    margin-left: 300px;
     border-left: 10px #A6BA41 solid;
-    width: 450px;
-    height: 510px;
+    width: 550px;
+    height: 610px;
     position: absolute;
     z-index: 1;
 
@@ -29,7 +38,8 @@
 }
 .caseContact2 p{
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 18px;
+  width: 400px;
 }
 
 .blocContact2 {
@@ -42,7 +52,7 @@
 }
 
 .caseContact2 hr {
-    width: 300px;
+    width: 400px;
 
 }
 .contactPDG2{
@@ -52,3 +62,4 @@
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
 }
+
