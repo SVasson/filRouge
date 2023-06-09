@@ -1,6 +1,12 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
+{% block scripts %}
+
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+{% endblock %}
+
 	<div class="maVideo">
 		<video class="myVideo" autoplay loop >
 			<source src="{{ videoUrl }}" type="{{ videoType }}">
@@ -59,9 +65,9 @@
 				<br>
 				<h2>CONTACT</h2>
 				<br>
-				<p>Une demande particulière, n’hésitez
+				<p>Si vous avez la moindre demande d'information
 				</p>
-				<p>pas à nous contacter. Nous vous répondrons au plus vite</p>
+				<p> ou si vous voulez faire partit des bénévoles vous pouvez nous contacter ici :</p>
 				<br>
 				<form
 					action="#" method="POST">
@@ -86,8 +92,9 @@
 					<hr>
 					<br>
 					{# <label for="message">Votre message:</label> #}
-					<textarea id="message" name="message" style="width: 100%; height: 40%; border: none;" placeholder="Votre message*" required></textarea>
+					<textarea id="message" name="message" style="width: 100%; height: 15%; border: none;" placeholder="Votre message*" required></textarea>
 					<hr>
+					<div class="g-recaptcha" data-sitekey="6LethUAlAAAAAGK1Kwy40ZwxLooQpds6SjoHm8V-"></div>
 					<br>
 					<input class="contactPDG" type="submit" value="Envoyer votre message ->">
 				</form>

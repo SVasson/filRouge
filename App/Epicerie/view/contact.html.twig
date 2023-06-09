@@ -2,7 +2,11 @@
 
 
 {% block body %}
+{% block scripts %}
 
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+{% endblock %}
 
 
 <section class="contact2">
@@ -39,10 +43,11 @@
 					<hr>
 					<br>
 					{# <label for="message">Votre message:</label> #}
-					<textarea id="message" name="message" style="width: 400px; height: 40%; border: none;" placeholder="Votre message*" required></textarea>
+					<textarea id="message" name="message" style="width: 400px; height: 30%; border: none;" placeholder="Votre message*" required></textarea>
 					<hr>
+					<div class="g-recaptcha" data-sitekey="6LethUAlAAAAAGK1Kwy40ZwxLooQpds6SjoHm8V-"></div>
 					<br>
-					<input type="submit" value="Envoyer votre message ->" style="margin-left: 65%;margin-top: 50px; border: none; background-color: white; cursor: pointer;">
+					<input type="submit" value="Envoyer votre message ->" style="margin-left: 65%;margin-top: 0px; border: none; background-color: white; cursor: pointer;">
 				</form>
 			</div>
 		</div>

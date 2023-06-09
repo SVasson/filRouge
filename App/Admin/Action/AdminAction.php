@@ -183,6 +183,7 @@ class AdminAction
             $this->entityManager->flush();
 
             $this->toaster->makeToast('L\'événement a été modifié avec succès.', Toaster::SUCCESS);
+            return $this->redirect('admin.listEvent');
         }
 
         return $this->renderer->render('@admin/edit-event', [

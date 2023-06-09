@@ -216,6 +216,7 @@ class UserAction
         // $participation->setUser($user);
 
         // Définir l'événement
+        $user=$this->entityManager->getRepository(User::class)->find($user->getId());
         $participation->setUser($user);
         $participation->setEvent($event);
 

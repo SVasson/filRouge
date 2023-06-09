@@ -172,3 +172,6 @@ button {
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
 }
+.g-recaptcha{
+    margin-top: 10px;
+}

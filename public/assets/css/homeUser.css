@@ -128,7 +128,7 @@
         margin-top: 3%;
         background-color: #A6BA41;
         font-size: 11px;
-        height: 55px;
+        height: 65px;
 
     }
 
@@ -199,21 +199,21 @@
 
     .annonceMedecin {
         position: absolute;
-        width: 80%;
-        height: 10%;
+        width: 50%;
+        height: 5%;
         margin-top: 5%;
         font-size: 18px;
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: #a6ba41c1;
-        margin-left: 10%;
+        margin-left: 25%;
     }
 
     .texteMedecin {
 
         position: absolute;
-        margin-top: -40%;
+        margin-top: -55%;
         width: 70%;
         height: 20%;
         margin-left: 14.5%;

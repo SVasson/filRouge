@@ -30,7 +30,7 @@ class Participation
      */
     private $event;
 
-    // getters and setters for $id, $user and $event
+    // getters et setters de $id, $user and $event
     public function getId(): ?int
     {
         return $this->id;
