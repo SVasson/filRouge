@@ -1,12 +1,12 @@
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 90dvw;
-    margin-top: 5%;
-    background-color: #a6ba418e;
+    display: flex; /*definit le conteneur flex*/
+    flex-direction: column;/*les direction du flex sera en colonne*/
+    justify-content: center;/*les mes au centre verticalement*/
+    align-items: center;/*les mets au centre horizontalement*/
+    min-width: 90dvw;/*largeur minimale de 90% par rapport a la largeur de la vue*/
+    margin-top: 5%;/*decaler de 5%du haut du conteneur*/
+    background-color: #a6ba418e;/*couleurs de fond*/
 }
 
 .userFormViewPort {
@@ -14,7 +14,7 @@ main {
     height: fit-content;
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.4);
-    border-radius: 15px;
+    border-radius: 15px;/*arrondi les bords de 15 pixels*/
     background-color: #A6BA41;
 
 
@@ -29,19 +29,19 @@ main {
 }
 
 .formContainer form {
-    position: absolute;
+    position: absolute;/*permet de survoler le contenu de la page*/
     min-width: 450px;
-    transition: .5s all ease-in-out;
+    transition: .5s all ease-in-out;/*ajoute une transition de 0.5 seconde a toute les propriétés css*/
     height: 100%;
 
 
 }
 
 .formConnexion {
-    top: 15%;
+    top: 15%;/* 15% de la hauteur du parent */
     left: 0;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
+    text-align: center;/*aligner le text au centre */
+    font-family: 'Roboto', sans-serif;/* change la police d'ecriture*/
 }
 
 .formInscription {
